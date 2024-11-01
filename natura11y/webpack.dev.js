@@ -1,10 +1,44 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const devPages = {
+
+    // Default
+    
+    'Index': 'index',
+
+    // Components
+
+    'Accordion': 'accordion',
+    'Alert': 'alert',
+    'Article': 'article',
+    'Button': 'button',
+    'Border': 'border',
+    'Backdrop': 'backdrop',
+    'Card': 'card',
+    'Color': 'color',
+    'Collapse': 'collapse',
+    'Container': 'container',
+    'Form': 'form',
+    'Grid': 'grid',
+    'Lightbox': 'lightbox',
+    'Modal': 'modal',                   
+    'Megamenu': 'megamenu',
+    'Navigation': 'navigation',
+    'New': 'new-features',
+    'Spacer': 'spacer',
+    'Tab': 'tab',
+    'Table': 'table',
+    'Track': 'track',
+    'Typography': 'typography'
+}
+
 const devDir = './dist/html';
-const devPage = 'track.html'; // Or set dynamically if needed
+const devPage = `${devPages.Track}.html`;
 
 module.exports = merge(common, {
     mode: 'development',
@@ -17,8 +51,7 @@ module.exports = merge(common, {
             staticOptions: {
                 index: devPage
             },
-        },
-        historyApiFallback: true // Useful for SPA
+        }
     },
     module: {
         rules: [
@@ -36,7 +69,9 @@ module.exports = merge(common, {
                         },
                     },
                     'css-loader',
-                    'postcss-loader',
+                    { 
+                        loader: 'postcss-loader'
+                    },
                     'sass-loader',
                 ],
             },

@@ -1,5 +1,4 @@
 /.env
 /.idea
 /vendor
-/web/cpresources
 .DS_Store

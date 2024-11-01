@@ -7,7 +7,7 @@ module.exports = {
         ]
     },
     output: {
-        filename: 'assets/js/[name].js',         // Puts JavaScript files in web/js
+        filename: 'dist/js/[name].js',         // Puts JavaScript files in web/js
         path: path.resolve(__dirname, '../web'), // Outputs to web directory
         publicPath: '/'
     }

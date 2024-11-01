@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
-const path = require('path');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin'); // For JS minification
@@ -9,10 +9,7 @@ module.exports = merge(common, {
     mode: 'production',
     target: 'browserslist',
     output: {
-        filename: 'js/[name].js', // Outputs JS files to web/js
-        path: path.resolve(__dirname, '../web'),
-        iife: true,
-        clean: true // Ensures old files are removed before new build
+        iife: true
     },
     module: {
         rules: [
@@ -63,7 +60,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'assets/css/[name].css', // Outputs CSS to web/css
+            filename: 'dist/css/[name].css', // Outputs CSS to web/css
         }),
         new CssMinimizerPlugin()
     ]
