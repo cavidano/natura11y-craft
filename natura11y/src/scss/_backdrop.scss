@@ -1,0 +1,142 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Component
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --backdrop-fixed-height: 400px;
+    --backdrop-media-control-inset: 0 0 auto auto;
+    --backdrop-media-credit-inset: auto 0 0 auto;
+}
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Backdrop Block
+
+    .backdrop {
+        position: relative;
+    }
+
+    // Backdrop Elements
+
+    .backdrop:not([class*="--stack"]):not([class*="--fixed"]){
+        .backdrop__cover {
+            position: absolute;
+        }
+    }
+
+    .backdrop__media {
+        position: relative;
+
+        img, video {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        video {
+            width: 100%;
+        }
+    }
+
+    .backdrop__media__control,
+    .backdrop__media__credit {
+        position: absolute;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        // outline: 2px solid red;
+    }
+
+    .backdrop__media__control {
+        inset: var(--backdrop-media-control-inset);
+        z-index: 600;
+        gap: 0.5rem;
+    }
+
+    .backdrop__media__credit {
+        inset: var(--backdrop-media-credit-inset);
+
+        font-size: var(--font-size-sm);
+        
+        padding: 0.25rem 0.75rem;
+        
+        z-index: 500;
+    }
+
+    .backdrop__cover {
+        inset: 0;
+
+        display: grid;
+
+        align-content: center;
+
+        align-items: stretch;
+    }
+
+    // Backdrop Stack Modifiers
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            .backdrop--stack#{$mod} {
+
+                .backdrop__cover {
+                    position: absolute;
+                }
+            }
+        }
+    }
+
+    // Backdrop Fixed Modifier
+
+    .backdrop--fixed {
+        overflow: hidden;
+
+        display: grid;
+
+        &:not([class*='aspect-ratio-']) {
+            min-height: var(--backdrop-fixed-height);
+        }
+
+        .backdrop__media {
+            position: absolute !important;
+            inset: 0;
+
+            display: flex;
+            overflow: hidden;
+
+            img, video {
+                object-fit: cover;
+                object-position: 50% 50%;
+            }
+        }
+
+        .backdrop__cover {
+            position: relative;
+        }
+    }
+
+} // end @layer

@@ -1,0 +1,36 @@
+/*
+
+In this file:
+
+// A. Button Aria Expanded
+// B. Collapse Utility
+
+*/
+
+//////////////////////////////////////////////
+// A. Button Aria Expanded
+//////////////////////////////////////////////
+
+@layer component {
+
+    .button[aria-expanded="true"] {
+        background-color: var(--subtle-fill-2);
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// B. Utility
+//////////////////////////////////////////////
+
+@layer utility {
+
+    .collapse {
+        display: none;
+        
+        &.shown {
+            display: block;
+        }
+    }
+
+} // end @layer

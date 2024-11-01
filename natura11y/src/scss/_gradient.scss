@@ -1,0 +1,101 @@
+
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+////////////////////////////////////////
+// A. Modules
+////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint' as breakpoint;
+
+////////////////////////////////////////
+// B. Variables
+////////////////////////////////////////
+
+:root {
+
+    // Gradient Mask Direction
+    
+    --gradient-direction-start: clamp(25%, 50%, 75%);
+    --gradient-vignette-start: 75%;
+
+    // Gradient Mask Opacity
+
+    --gradient-mask-opacity: 1;
+}
+
+////////////////////////////////////////
+// C. Utilities
+////////////////////////////////////////
+
+@layer utility {
+
+    [class*="gradient-mask"] {
+        --_gradient-stop-1: hsla(0, 0%, 100%, var(--gradient-mask-opacity)) var(--gradient-direction-start);
+        --_gradient-stop-2: transparent;
+
+        pointer-events: none;
+
+        &:not([class*="-vignette"]) {
+            --_gradient-mask-image: linear-gradient(var(--_gradient-direction), var(--_gradient-stop-1), var(--_gradient-stop-2));
+        }
+    }
+
+    // Gradient Mask Direction
+    
+    [class*="gradient-mask-top"] {
+        --_gradient-direction: to top;
+    }
+
+    [class*="gradient-mask-right"] {
+        --_gradient-direction: to right;
+    }
+
+    [class*="gradient-mask-bottom"] {
+        --_gradient-direction: to bottom;
+    }
+
+    [class*="gradient-mask-left"] {
+        --_gradient-direction: to left;
+    }
+
+    // Gradient Mask Vignette
+
+    [class*="gradient-mask-vignette"] {
+        --_gradient-mask-image: 
+            linear-gradient(to top, var(--_gradient-stop-1), var(--_gradient-stop-2)),
+            linear-gradient(to right, var(--_gradient-stop-1), var(--_gradient-stop-2)),
+            linear-gradient(to bottom, var(--_gradient-stop-1), var(--_gradient-stop-2)),
+            linear-gradient(to left, var(--_gradient-stop-1), var(--_gradient-stop-2)),
+            radial-gradient(ellipse at center, var(--_gradient-stop-1), var(--_gradient-stop-2));
+        
+        mask-position: right;
+        mask-composite: intersect;
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            .gradient-mask-top#{$mod},
+            .gradient-mask-right#{$mod},
+            .gradient-mask-bottom#{$mod},
+            .gradient-mask-left#{$mod} {
+                mask-image: var(--_gradient-mask-image);
+            }
+
+            .gradient-mask-vignette#{$mod} {
+                mask-image: var(--_gradient-mask-image);
+            }   
+        }
+    }
+
+} // end @layer

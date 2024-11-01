@@ -1,0 +1,78 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Container Utility
+// D. Narrow, Medium, and Wide Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --container-padding-x-sm: var(--spacer-2);
+    
+    --container-padding-x-lg: var(--spacer-3);
+
+    --container-padding-x: var(--container-padding-x-sm);
+
+    --narrow-width: min(40rem, 85vw); // Approximately 55 characters wide for readability
+
+    --medium-width: min(var(--narrow-width) * 1.75, 90vw);
+    
+    --wide-width: min( var(--narrow-width) * 2.5, 95vw);
+
+    @include breakpoint.breakpoint-up(lg) {
+        --container-padding-x: var(--container-padding-x-lg);
+    }
+}
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    .container {
+        padding-inline: var(--container-padding-x);
+        margin-inline: auto;
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// D. Narrow, Medium, and Wide Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            .narrow#{$mod} {
+                max-width: var(--narrow-width);
+            }
+
+            .medium#{$mod} {
+                max-width: var(--medium-width);
+            }
+
+            .wide#{$mod} {
+                max-width: var(--wide-width);
+            }
+        }
+    }
+
+} // end @layer

@@ -1,0 +1,169 @@
+/*
+
+// Custom Properties
+
+*/
+
+:root {
+
+    --gutter: 16px;
+    
+    /* Color */
+    
+    --dark: hsl(120, 10%, 7%);
+    --light: hsl(35, 35%, 95%);
+    --canvas: hsla(0, 0%, 100%, 1);
+
+    --primary-h: 140;
+    --primary-s: 75%;
+    --primary-l: 25%;
+
+    --primary: 
+        hsl(var(--primary-h), 
+        var(--primary-s), 
+        var(--primary-l));
+
+    --secondary-h: var(--primary-h);
+    --secondary-s: 5%;
+    --secondary-l: 15%;
+
+    --secondary: 
+        hsl(var(--secondary-h), 
+        var(--secondary-s), 
+        var(--secondary-l));
+
+    --secondary-text: white;
+
+    --canvas-border: hsla(0, 0%, 75%, 0.5);
+
+    /* Font Families and Sizes */
+
+    --body-font-family: "Lora", serif;
+
+    --header-font-family: "Oswald", sans-serif;
+
+    --button-font-family: var(--header-font-family);
+
+    --base-font-size: 1rem;
+
+    --type-scale: 1.22;
+
+    /* Misc */
+
+    --grid-sidebar-width: calc((3 / 12) * 100% - var(--gutter));
+
+    --position-sticky-offset: var(--spacer-3);
+}
+
+/*
+
+// Typography
+
+*/
+
+.oswald {
+    font-family: "Oswald", sans-serif;
+}
+
+#introduction.backdrop {
+    --backdrop-fixed-height: 850px;
+    --gradient-mask-opacity: 0.875;
+}
+
+/*
+
+// Typography
+
+*/
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --type-scale: 1.1375;
+        --spacer-base: 0.675rem;
+    }
+
+    #introduction.backdrop {
+        --backdrop-fixed-height: 450px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --primary-s: 50%;
+        --primary-l: 50%;
+
+        --primary-text: var(--secondary);
+        
+        --light: hsla(0, 0%, 15%);
+
+        --light-text: white;
+        /* --canvas: hsla(0, 0%, 0%, 0.90); */
+    }
+
+    .theme-canvas--prefers {
+        --dark-border: hsla(0, 0%, 100%, 0.2);
+    }
+
+    .opacity-color-scheme {
+        filter: opacity(33%);
+    }
+
+}
+
+.grid-sidebar__major__container {
+
+    :is(h1,h2, h3) {
+        color: var(--primary);
+    }
+
+    > header {
+        margin-block-end: var(--spacer-3);
+    }
+
+    :is(h2, h3, h4, h5, h6) {
+        scroll-margin-top: var(--spacer-4);
+    }
+
+    > section:not(:last-of-type), 
+    > hr {
+        margin-block-end: var(--spacer-5);
+    }
+
+    > hr {
+        --border-color: var(--dark);
+    }
+
+    > section > section:not(:last-of-type) {
+        margin-block-end: var(--spacer-4);
+    }
+
+    > section figure {
+        margin-block-start: var(--spacer-4);
+
+        &:not(:last-of-type) {
+            margin-block-end: var(--spacer-4);
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        --container-width: calc((8 / 9) * 100%);
+        --text-width: calc((5 / 8) * 100% - calc( var(--gutter) /2));
+
+        max-width: var(--container-width);
+        margin-inline-start: auto;
+
+        :is(h2, h3, h4, h5, h6, p, hr) {
+            max-width: var(--text-width);
+        }
+
+        > section figure figcaption {
+            --text-width: 100%;
+            text-align: end;
+        }
+
+        > section figure {
+            margin-inline-start: calc(var(--container-padding-x) * -1);
+        }
+    }
+}

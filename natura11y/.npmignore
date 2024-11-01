@@ -1,0 +1,16 @@
+#.npmignore
+
+#Folders
+node_modules
+dist/html
+.vscode
+
+#Files
+package-lock.json
+postcss.config.js
+naturally-logo.svg
+postcss.config.js
+
+webpack.common.js
+webpack.dev.js
+webpack.prod.js

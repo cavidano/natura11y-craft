@@ -1,0 +1,81 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Selector Resets
+// D. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$aspect-ratios: (
+    (16 9),
+    (5 7),
+    (4 3),
+    (3 2),
+    (3 1),
+    (1 1)
+);
+
+////////////////////////////////////////
+// C. Selector Resets
+////////////////////////////////////////
+
+@layer base {
+
+    iframe {
+        display: block;
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// D. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    [class*="aspect-ratio"] {
+        width: 100%;
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @each $aspect-ratio in $aspect-ratios {
+                $aspect-ratio-x: list.nth($aspect-ratio, 1);
+                $aspect-ratio-y: list.nth($aspect-ratio, 2);
+
+                .aspect-ratio-#{$aspect-ratio-x}x#{$aspect-ratio-y}#{$mod} {
+                    aspect-ratio: math.div($aspect-ratio-x, $aspect-ratio-y);
+                    
+                    &[class*="backdrop--fixed"] {
+                        min-height: unset;
+                    }
+
+                }
+            }
+
+            .aspect-ratio-unset#{$mod} { 
+                aspect-ratio: unset;
+            }
+
+        }
+    }
+
+} // end @layer

@@ -1,0 +1,35 @@
+/*
+
+In this file:
+
+// A. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    .overflow-auto {
+        overflow: auto;
+    }
+
+    .overflow-visible {
+        overflow: visible;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .overflow-x-scroll {
+        overflow-x: scroll;
+    }
+
+    .overflow-y-scroll {
+        overflow-y: scroll;
+    }
+
+} // end @layer

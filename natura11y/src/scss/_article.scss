@@ -1,0 +1,99 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Component
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --article-sidebar-width: 300px;
+}
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Article Block
+
+    [class*="article--"] {
+        display: grid;
+    }
+
+    // Article Elements and Modifiers
+    
+    @include breakpoint.breakpoint-up(lg) {
+
+        .article__header {
+            grid-area: header;
+        }
+        
+        .article__sidebar {
+            position: relative;
+            grid-area: sidebar;
+
+            .sticky-top {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+
+        .article__body {
+            grid-area: body;
+        }
+
+        .article__related {
+            grid-area: related;
+        }
+
+        .article--column-2,
+        .article--column-3 {
+            grid-template-columns: var(--article-sidebar-width) 1fr;
+
+            grid-template-areas:
+                "header header"
+                "sidebar body"
+                ". related";
+        }
+
+        :is(
+            .article--column-2,
+            .article--column-3 
+        ) .article__header .backdrop__cover > * {
+            justify-self: stretch;
+
+            padding-inline-start: var(--article-sidebar-width);
+        }
+    }
+
+    @include breakpoint.breakpoint-up(xl) {
+
+        .article--column-3 {
+            grid-template-columns: var(--article-sidebar-width) 1fr var(--article-sidebar-width);
+
+            grid-template-areas:
+                "header header header"
+                "sidebar body related";
+
+            .article__header .backdrop__cover > * {
+                padding-inline-end: var(--article-sidebar-width);
+                max-width: 100%;
+            }
+        }
+    }
+
+} // end @layer

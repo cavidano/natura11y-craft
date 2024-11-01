@@ -1,0 +1,201 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Component
+
+*/
+
+////////////////////////////////////////
+// A. Modules
+////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+////////////////////////////////////////
+// B. Variables
+////////////////////////////////////////
+
+:root {
+    // Tabs Nav
+
+    --tab-button-padding-x: var(--button-padding-x);
+
+    --tab-button-padding-y: var(--button-padding-y);
+
+    --tab-nav-text-color: var(--link-color, currentColor);
+
+    --tab-nav-background-color: var(--subtle-fill-1);
+
+    // Default Active Tab
+    
+    --tab-nav-active-text-color: currentColor;
+    --tab-nav-active-background-color: transparent;
+
+    --tab-nav-active-bar-size: calc(var(--border-width) * 3);
+    
+    --tab-nav-active-bar-color: currentColor;
+
+    // Pill Active Tab
+
+    --tab-nav-pill-active-text-color: currentColor;
+    --tab-nav-pill-active-background-color: var(--subtle-fill-2);
+}
+
+////////////////////////////////////////
+// C. Component
+////////////////////////////////////////
+
+@layer component {
+
+    // Tabs Nav
+
+    .tabs-nav {
+        list-style: none;
+
+        > li {
+            position: relative;
+        }
+        
+        > li > :is(a, button) {
+            position: relative;
+
+            width: 100%;
+            
+            padding: var(--tab-button-padding-y) var(--tab-button-padding-x);
+
+            min-height: var(--button-target-size);
+
+        }
+
+        .is-active {
+            font-weight: var(--font-weight-bold);
+
+            --focus-outline-color: var(--tab-nav-active-text-color);
+
+            &::before {
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    .tabs-nav:not([class*="--pill"]) {
+
+        li {
+            border-bottom: var(--border-width) var(--border-style) var(--border-color);
+        }
+
+        > li > :is(a, button) {
+
+            color: var(--tab-nav-text-color);
+            
+            background-color: var(--tab-nav-background-color);
+
+            text-align: left;
+        
+            &::before {
+                position: absolute;
+                content: "";
+                inset-block-start: 0;
+                inset-block-end: 0;
+                inset-inline-start: 0;
+
+                width: var(--tab-nav-active-bar-size);
+
+                background-color: var(--tab-nav-active-bar-color);
+                
+                opacity: 0;
+            }
+
+            &.is-active {
+                color: var(--tab-nav-active-text-color);
+                background-color: var(--tab-nav-active-background-color);
+            }
+
+        }
+    }
+
+    // Tabs Nav Modifiers
+
+    .tabs-nav--pill,
+    .tabs-nav--pill > li > :is(a, button) {
+        border-radius: calc( var(--button-target-size) * 0.5);
+        overflow: hidden;
+    }
+
+    .tabs-nav--pill {
+        color: var(--tab-nav-text-color);
+        
+        background-color: var(--tab-nav-background-color);
+
+         .is-active{
+            color: var(--tab-nav-pill-active-text-color);
+            background-color: var(--tab-nav-pill-active-background-color);
+
+            &::before {
+                opacity: 1 !important;
+            }
+        }
+    }
+
+    .tabs-nav {
+        @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+            @include breakpoint.breakpoint-up($breakpoint) {
+                $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+                &.tabs-nav--horizontal#{$mod} {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: baseline;
+
+                    > li {
+                        flex: 1;
+
+                        border-bottom: none;
+                    }
+
+                    > li > a,
+                    > li > button {
+                        text-align: center;
+
+                        // not pill
+                        
+                        &::before {
+                            inset-block-end: unset;
+                            inset-inline-end: 0;
+                
+                            width: unset;
+
+                            height: var(--tab-nav-active-bar-size);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    // D. Tabs Panel Element
+
+    .tabs__panel {
+        display: none;
+
+        &.shown {
+            display: block;
+        }
+    }
+
+    // E. Tabs With 'theme-*' Utility
+
+    .tabs[class*="theme-"] {
+        .is-active {
+            &::before {
+                margin: var(--tab-nav-active-bar-size);
+            }
+        }
+    }
+
+} // end @layer

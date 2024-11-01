@@ -1,0 +1,35 @@
+/*
+
+// Custom Properties
+
+*/
+
+:root {
+
+    /* Colors */
+
+    --dark: #1a1a1a;
+    
+    --primary: #cc4632;
+    --primary-text: white;
+
+    --secondary: #3E00B0;
+    --secondary-text: white;
+
+    /* Font Families and Sizes */
+
+    --body-font-family: 'Lato';
+
+    --header-font-family: 'DM Serif Display', serif;
+
+    --header-font-weight: 400;
+
+    --base-font-size: 1rem;
+
+    --type-scale: 1.2;
+}
+
+#introduction.backdrop, 
+#sign-up.backdrop {
+    --backdrop-fixed-height: 900px;
+}

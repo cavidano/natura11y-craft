@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Lightbox • Natura11y</title>
+
+        <!-- Natura11y Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/natura11y-icons@v1/dist/natura11y-icons.min.css">
+
+    </head>
+
+    <body>
+
+        <main>
+
+            <section class="overflow-hidden">
+
+                <header class="margin-y-4 text-align-center">
+                    <h1 class="banner-headline">
+                        Lightbox
+                    </h1>
+                </header>
+
+                <div class="container narrow margin-y-5">
+                        
+                    <figure class="margin-y-4">
+                        <div class="grid grid--column-2--lg gap-2 margin-x-n5--lg margin-y-5">
+
+                            <figure>
+                                <button
+                                    class="lightbox-thumbnail"
+                                    data-lightbox="image"
+                                    data-lightbox-src="./_assets/eberhard-grossgasteiger-yF9Tm4qrYmM-unsplash.jpg"
+                                    data-lightbox-caption="Local image"
+                                >
+                                    <img
+                                        src="./_assets/eberhard-grossgasteiger-yF9Tm4qrYmM-unsplash.jpg"
+                                        alt="Placeholder"
+                                    />
+                                </button>
+                                <figcaption>
+                                    <p>
+                                        Photo by <a href="https://unsplash.com/@eberhardgross?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">eberhard 🖐 grossgasteiger</a> on <a href="https://unsplash.com/photos/DhYErfw33CE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                                    </p> 
+                                </figcaption>
+                            </figure>
+
+                            <figure>
+                                <button
+                                    class="lightbox-thumbnail"
+                                    data-lightbox="video"
+                                    data-lightbox-src="./_assets/pexels-dmitry-varennikov-5527699-1080p.mp4"
+                                    data-lightbox-caption="Local video"
+                                >
+                                    <img
+                                        src="./_assets/pexels-dmitry-varennikov-5527699-thumbnail.jpg"
+                                        alt="Placeholder"
+                                    />
+                                </button>
+                                <figcaption>
+                                    <p>
+                                        Video by <a href="https://www.pexels.com/video/beautiful-full-moonrise-time-lapse-5527699/" target="_blank">Dmitry Varennikov</a>
+                                    </p> 
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                    </figure>
+
+                    <figure class="margin-y-4">
+
+                        <button
+                            class="backdrop theme-dark border-radius-2"
+                            data-lightbox="video"
+                            data-lightbox-src="./_assets/pexels-dmitry-varennikov-5527698-1080p.mp4"
+                            data-lightbox-caption="Local video"
+                        >
+                            <div class="backdrop__media gradient-mask-bottom">
+                                <img class="opacity-80" src="./_assets/pexels-dmitry-varennikov-5527698-thumbnail.jpg" alt="Placeholder" />
+                            </div>
+
+                            <div class="backdrop__cover align-content-end justify-content-start container padding-y-3">
+
+                                <div>
+                                    <h2 class="h4 display-flex align-items-center gap-1">
+                                        <span class="icon icon-play" aria-hidden="true"></span>
+                                        Open Local Video
+                                    </h2>
+                                </div>
+
+                            </div>
+
+                        </button> 
+
+                        <figcaption>
+                            <p>Video by <a href="https://www.pexels.com/video/beautiful-full-moonrise-time-lapse-5527699">Dmitry Varennikov</a></p> 
+                        </figcaption>
+                    </figure>
+
+                    <figure class="margin-y-4">
+
+                        <button
+                            class="button theme-primary width-100 margin-bottom-3"
+                            data-lightbox="video"
+                            data-lightbox-src="https://www.youtube.com/embed/k3ftlbnbwuc"
+                            data-lightbox-caption="Youtube video"
+                        >
+                            Open Youtube Video
+                        </button>
+
+                        <button
+                            class="button theme-primary width-100 margin-bottom-3"
+                            data-lightbox="video"
+                            data-lightbox-src='https://player.vimeo.com/video/54802209?h=53340e8e30'
+                            data-lightbox-caption="Vimeo video"
+                        >
+                            Open Vimeo Video
+                        </button>
+
+                    </figure>
+
+                </div>
+
+            </section>
+        
+        </main>
+
+    </body>
+
+</html>

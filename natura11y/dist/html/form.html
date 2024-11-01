@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Form • Natura11y</title>
+        
+        <!-- Natura11y Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/natura11y-icons@v1/dist/natura11y-icons.min.css">
+
+    </head>
+
+    <body>
+
+
+            <section class="backdrop backdrop--fixed theme-dark" id="sign-up">
+
+                <div class="backdrop__media gradient-mask-bottom">
+                    <img class="opacity-30" src="./images/david-clode-XoqdPNv-x7Q-unsplash.jpg" alt="Placeholder" />
+
+                    <div class="backdrop__media__credit margin-1">
+                        <p>
+                            Photo by <a href="https://unsplash.com/@davidclode" target="_blank">David Clode</a> on Unsplash
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="backdrop__cover">
+
+                    <div class="container medium padding-y-5 align-self-end">
+
+                        <h1 class="text-align-center text-shadow margin-bottom-4">
+                            A scelerisque purus semper.
+                        </h1>
+
+                        <form class="container narrow">
+                                                
+                            <div class="grid grid__columns-2 gap-2">
+
+                                <div 
+                                    class="form-entry"
+                                    data-required="true"
+                                    data-error-message="First Name is required!">
+
+                                    <label class="form-entry__field form-entry__field--float">
+
+                                        <span class="form-entry__field__label">
+                                            First Name
+                                        </span>
+                                        
+                                        <span class="form-entry__field__input">
+                                            <input type="text" id="account-first-name" name="accountFirstName" />
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+                                <div 
+                                    class="form-entry"
+                                    data-required="true"
+                                    data-error-message="Password is required!">
+
+                                    <label class="form-entry__field form-entry__field--float">
+
+                                        <span class="form-entry__field__label">
+                                            Last Name
+                                        </span>
+                                        
+                                        <span class="form-entry__field__input">
+                                            <input type="text" id="account-last-name" name="accountLastName" />
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+                                <div 
+                                    class="form-entry grid__colspan-2"
+                                    data-required="true"
+                                    data-error-message="Password is required!">
+
+                                    <label class="form-entry__field form-entry__field--float">
+
+                                        <span class="form-entry__field__label">
+                                            Email
+                                        </span>
+                                        
+                                        <span class="form-entry__field__input">
+                                            <input type="email" id="account-email" name="accountEmail" />
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+                                <hr class="grid__colspan-2" />
+
+                                <button class="button theme-primary width-100" type="submit">
+                                    Sign Up
+                                </button>
+
+                            </div>
+
+                        </form>
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+        <main class="overflow-hidden">
+
+            <section class="margin-y-5">
+
+                <header class="margin-y-4 text-align-center">
+                    <h1 class="banner-headline">
+                        Form
+                    </h1>
+                </header>
+
+                <div class="container narrow margin-y-4">
+                    
+                    <form novalidate>
+
+                        <p class="required-indicator" aria-hidden="true">
+                            <span class="required-indicator__text">
+                                Required fields indicated with
+                            </span>
+                            <span class="icon icon-asterisk"></span>
+                        </p>
+
+                        <div
+                            class="form-entry"
+                            data-required="true"
+                            data-error-message="Your first and last name is required!">
+
+                            <label class="form-entry__field">
+                                <span class="form-entry__field__label">
+                                    Name
+                                </span>
+                                <span class="form-entry__field__input">
+                                    <input
+                                        type="text"
+                                        name="textInputExample"
+                                        id="first-and-last-name"
+                                        aria-describedby="help-first-and-last-name"
+                                    />
+                                </span>
+                            </label>
+
+                            <small class="form-entry__help" id="help-first-and-last-name">
+                                Include first and last name
+                            </small>
+
+                        </div>
+                        <!-- .form-entry -->
+
+                        <div class="form-entry">
+
+                            <label class="form-entry__field">
+
+                                <span class="form-entry__field__label">
+                                    Form Entry Label
+                                </span>
+
+                                <span class="form-entry__field__select">
+                                    <select
+                                        id="select-example"
+                                        name="selectExample"
+                                        aria-describedby="help-select-example">
+                                            <option value="">Select</option>
+                                            <option value="Option One">Option One</option>
+                                            <option value="Option Two">Option Two</option>
+                                            <option value="Option Three">Option Three</option>
+                                            <option value="Option Four">Option Four</option>
+                                            <option value="Option Five">Option Five</option>
+                                    </select>
+                                </span>
+
+                            </label>
+
+                            <small class="form-entry__help" id="help-select-example">
+                                Form entry help text
+                            </small>
+
+                        </div>
+
+                        <div
+                            class="form-entry"
+                            data-required="true"
+                            data-error-message="Your email is required!">
+
+                            <label class="form-entry__field">
+                                <span class="form-entry__field__label">
+                                    Email
+                                </span>
+                                <span class="form-entry__field__input">
+                                    <input
+                                        type="email"
+                                        name="emailAddress"
+                                        id="email-address"
+                                        aria-describedby="help-email-address">
+                                </span>
+                            </label>
+
+                            <small class="form-entry__help" id="help-email-address">
+                                Example: janeDoe@email.com
+                            </small>
+
+                        </div>
+                        <!-- .form-entry -->
+                        
+                        <div class="form-entry"
+                            data-required="true"
+                            data-error-message="Please include a valid phone number."
+                        >
+
+                            <label class="form-entry__field">
+                                <span class="form-entry__field__label">
+                                    Phone
+                                </span>
+                                <span class="form-entry__field__input">
+
+                                <input
+                                    type="tel"
+                                    name="phoneNumber"
+                                    id="phone-number"
+                                    aria-describedby="help-phone-number">
+                                </span>
+
+                            </label>
+
+                            <small class="form-entry__help" id="help-phone-number">
+                                Example: 999-999-9999
+                            </small>
+
+                        </div>
+                        <!-- .form-entry -->
+
+                        <div
+                            class="form-entry"
+                            data-required="true"
+                            data-error-message="Describe the reason for contacting us!">
+
+                            <label class="form-entry__field">
+
+                                <span class="form-entry__field__label">
+                                    Leave a short message
+                                </span>
+
+                                <span class="form-entry__field__input">
+                                    <textarea rows="6"></textarea>
+                                </span>
+
+                            </label>
+
+                        </div>
+                        <!-- .form-entry -->
+
+                        <div class="form-entry">
+
+                            <fieldset class="form-entry__field">
+
+                                <legend class="form-entry__field__label">
+                                    Form Entry Label
+                                </legend>
+
+                                <div class="form-entry__option">
+
+                                    <div class="form-entry__option__check">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                name="checkboxGroupExample"
+                                                id="check-option-one"
+                                                value="optionOne">
+                                                <span class="option__label">
+                                                    Option One
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-entry__option__check">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                name="checkboxGroupExample"
+                                                id="check-option-two"
+                                                value="optionTwo">
+                                                <span class="option__label">
+                                                    Option Two
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-entry__option__check">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                name="checkboxGroupExample"
+                                                id="check-option-three"
+                                                value="optionThree">
+                                                <span class="option__label">
+                                                    Option Three
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+                        <!-- .form-entry -->
+
+                        <div class="form-entry">
+
+                            <fieldset class="form-entry__field">
+
+                                <legend class="form-entry__field__label">
+                                    Contact Preferences
+                                </legend>
+
+                                <div class="form-entry__option">
+
+                                    <div class="form-entry__option__radio">
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="contactPreferences"
+                                                id="contact-email"
+                                                value="optionOne">
+                                                <span class="option__label">
+                                                    Contact me by email
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-entry__option__radio">
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="contactPreferences"
+                                                id="contact-phone"
+                                                value="optionTwo">
+                                                <span class="option__label">
+                                                    Contact me by phone
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-entry__option__radio">
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="contactPreferences"
+                                                id="contact-none"
+                                                value="optionThree">
+                                                <span class="option__label">
+                                                    Do not contact me
+                                                </span>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+
+                        <div class="form-entry">
+
+                            <div class="form-entry__field">
+
+                                <span class="form-entry__field__label">
+                                    Upload a Single File
+                                </span>
+
+                                <div class="form-entry__field__input">
+
+                                    <label class="file-upload">
+                                        <span class="file-upload__drop">
+                                            <span class="file-upload__drop__text">Drag and Drop</span>
+                                        </span>
+
+                                        <input class="file-upload__input" type="file" name="fileUploadExample" id="file-uploadsple" accept="image/*">
+
+                                        <span class="button button--outline button--has-icon file-upload__button">
+                                            <span class="icon icon-upload"></span>
+                                            <span class="button__text">Browse for a File</span>
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <small class="form-entry__help" id="help-file-uploadsple">
+                                Form entry help text
+                            </small>
+
+                        </div>
+
+                        <button 
+                            class="button theme-primary width-100 rounded-pill"
+                            type="submit">
+                                Send
+                        </button>
+
+                    </form>
+                    
+                </div>
+
+                <hr />
+
+                <div class="container medium margin-y-4">
+                    
+                    <div class="grid gap-3 margin-bottom-5">
+
+                        <div
+                            class="form-entry"
+                            id="material-search"
+                            data-focus-first>
+
+                            <div class="form-entry__field">
+
+                                <label class="form-entry__field__label screen-reader-only" for="search-example">
+                                    Search
+                                </label>
+                                        
+                                <span class="form-entry__field__input">
+                                    <input
+                                        type="search"
+                                        name="search-example"
+                                        id="search-example"
+                                        placeholder="Search"
+                                        autocomplete="off"
+                                    />
+                                    <button class="button button--icon-only">
+                                        <span class="icon icon-search" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-entry" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <span class="icon icon-mail opacity-50" aria-hidden="true"></span>
+                                    <input
+                                        type="email"
+                                    />
+                                    <button class="button theme-primary">
+                                        Sign Up
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-entry" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input border-radius-pill">
+                                    <span class="icon icon-search opacity-50" aria-hidden="true"></span>
+                                    <input
+                                        type="search"
+                                        placeholder="Search"
+                                    />
+                                        <button class="button button--icon-only theme-light border-radius-circle" aria-label="Search">
+                                            <span class="icon icon-close" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="button button--icon-only theme-light border-radius-circle" aria-label="More">
+                                            <span class="icon icon-more-vertical" aria-hidden="true"></span>
+                                        </button>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid--column-2 gap-3 margin-bottom-4">
+                        
+                        <div class="form-entry" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <span class="icon icon-search opacity-50" aria-hidden="true"></span>
+                                    <input type="text" name="global-search">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-entry" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <input type="text" name="global-search">
+                                    <button class="button">
+                                        Search
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                     
+                    <div class="grid grid--column-2 gap-3 margin-bottom-4 ">
+                        
+                        <div class="form-entry font-size-lg" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <span class="icon icon-search opacity-50" aria-hidden="true"></span>
+                                    <input type="text" name="global-search">
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-entry font-size-sm" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <input type="text" name="global-search">
+                                    <button class="button theme-dark">
+                                        Search
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-entry grid__colspan-2" aria-label="Search">
+                            <div class="form-entry__field">
+                                <span class="form-entry__field__input">
+                                    <span class="icon icon-mail opacity-50" aria-hidden="true"></span>
+                                    <input type="email" name="global-search">
+                                    <button class="button theme-dark">
+                                        Sign Up
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </section>
+
+        </main>
+
+    </body>
+
+</html>

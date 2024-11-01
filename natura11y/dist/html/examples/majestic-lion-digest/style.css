@@ -1,0 +1,324 @@
+/*
+
+// Custom Properties
+
+*/
+
+:root {
+    --dark: #1d1920;
+    --primary: #d39934;
+    --primary-text: var(--dark);
+
+    --html-background-color: var(--dark);
+
+    --body-font-family: 'Work Sans', sans-serif;
+    --type-scale: 1.25;
+
+    --active-background-color: var(--primary);
+    --active-text-color: var(--primary-text);
+
+    --button-border-radius: 0;
+
+
+    --button-font-family: 'Bebas Neue', cursive;
+}
+
+[class*="gradient-mask"] { 
+    --gradient-mask-opacity: 0.75;
+}
+
+/*
+
+// Reduce Type Scale for Mobile
+
+*/
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --type-scale: 1.125;
+    }
+}
+
+/*
+
+// Font Utility
+
+*/
+
+.bebas {
+    font-family: 'Bebas Neue', cursive;
+}
+
+/*
+
+// Grid Layout
+
+*/
+
+:root {
+    --gutter: 10%;
+    --sidebar-width: 25%;
+}
+
+@media screen and (min-width: 1000px) {
+
+    .grid-layout {
+        display: grid;
+
+        grid-template-columns: 
+            var(--gutter) 1fr var(--gutter);
+        
+        grid-template-areas:
+            ". header ."
+            "banner banner banner"
+            ". content ."
+            ". footer .";
+    }
+
+    .banner { grid-area: banner; }
+
+    .header { grid-area: header; }
+
+    .content { grid-area: content; }
+
+    .footer { grid-area: footer; }
+
+    .banner .backdrop__cover {
+        --cover-width: 100%;
+        width: calc( var(--cover-width) - calc(var(--gutter) * 2));
+        margin-inline: auto;
+    }
+
+    .banner .backdrop__cover > *,
+    .content {
+        display: grid;
+        grid-template-columns: var(--sidebar-width) 1fr;
+    }
+
+    .banner .backdrop__cover > * .container {
+        grid-column: 2 / 3;
+    }
+}
+
+/*
+
+// Clip paths
+
+*/
+
+.banner,
+.cats-3-up {
+    position: relative;
+}
+
+.banner .backdrop__media::before,
+.cats-3-up::before {
+    content: '';
+
+    position: absolute;
+    top: 100%;
+    
+    width: 100%;
+    height: 25%;
+    
+    transform: translateY(-50%);
+    
+    filter: opacity(50%);
+
+    background-color: var(--primary);
+
+    z-index: 15000;
+}
+
+.banner .backdrop__media::before {
+    clip-path: polygon(
+        5% 42%,
+        40% 25%,
+        95% 58%,
+        95% 62%,
+        40% 30%,
+        5% 46%
+    );
+}
+
+.cats-3-up::before {
+    clip-path: polygon(
+        3% 65%,
+        34% 43%,
+        46% 68%,
+        67% 45%,
+        96% 66%,
+        96% 74%,
+        67% 54%,
+        46% 78%,
+        34% 52%,
+        3% 73%
+    );
+
+}
+
+@media screen and (max-width: 760px) {
+    .cats-3-up::before {
+        display: none;
+    }
+}
+
+.mobile-menu-toggle {
+    clip-path: polygon(
+        10% 4%,
+        90% 0%,
+        100% 100%,
+        5% 96%
+    );
+}
+
+.primary-nav__actions .button {
+    clip-path: polygon(
+        0 0,
+        95% 5%,
+        100% 90%,
+        2% 100%
+    );
+}
+
+.nav__dropdown {
+    clip-path: polygon(
+        2% 0,
+        96% 4%,
+        100% 92%,
+        0% 100%
+    );
+}
+
+.banner .backdrop__media img {
+    clip-path: polygon(
+        2% 6%,
+        99% 0,
+        96% 100%,
+        40% 92%,
+        4% 96%
+    );
+}
+
+.content__sidebar .nav li:nth-child(1) a {
+    clip-path: polygon(
+        6% 18%,
+        50% 0%,
+        100% 0%,
+        90% 100%,
+        0% 100%
+    );
+}
+
+.content__sidebar .nav li:nth-child(2) a {
+    clip-path: polygon(
+        0% 14%,
+        96% 0%,
+        100% 70%,
+        94% 100%,
+        4% 90%
+    );
+}
+
+.content__sidebar .nav li:nth-child(3) a {
+    clip-path: polygon(
+        2% 5%,
+        95% 0%,
+        100% 84%,
+        60% 100%,
+        0 90%
+    );
+}
+
+.content__sidebar .nav li:nth-child(4) a {
+    clip-path: polygon(
+        2% 14%,
+        96% 1%,
+        90% 84%,
+        40% 100%,
+        0 98%
+    );
+}
+
+.content__sidebar .nav li:nth-child(5) a {
+    clip-path: polygon(
+        2% 11%,
+        92% 0,
+        99% 100%,
+        4% 91%,
+        1% 48%
+    );
+}
+
+.cats-3-up .backdrop:nth-child(1) {
+    clip-path: polygon(
+        8% 0,
+        96% 4%,
+        100% 95%,
+        3% 100%,
+        0% 65%
+    );
+}
+
+.cats-3-up .backdrop:nth-child(2) {
+    clip-path: polygon(
+        0% 5%,
+        97% 0%,
+        100% 95%,
+        38% 100%,
+        4% 95%
+    );
+}
+
+.cats-3-up .backdrop:nth-child(3) {
+    clip-path: polygon(
+        0 0,
+        96% 4%,
+        100% 32%,
+        92% 100%,
+        4% 96%
+    );
+}
+
+.cat-table {
+    clip-path: polygon(
+        70% 0,
+        100% 6%,
+        95% 94%,
+        4% 100%,
+        0 7%
+    );
+}
+
+/*
+
+// Button Styles
+
+*/
+
+
+[aria-current] {
+    color: var(--active-text-color);
+    background-color: var(--active-background-color) !important;
+}
+
+.button {
+    transition: transform 0.5s;
+}
+
+.button::before {
+    transition: opacity 0.5s;
+}
+
+.button:hover,
+.button:focus {
+    transform: scale(1.12);
+    filter: brightness(1.25);
+    opacity: unset;
+}
+
+.button:hover,
+.button:focus {
+    /* --subtle-fill-opacity: 10%; */
+    transform: scale(1.12);
+}

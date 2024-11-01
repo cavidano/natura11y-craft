@@ -1,0 +1,8 @@
+#.gitignore
+
+#Folders
+node_modules
+.vscode
+
+#Files
+naturally-logo.svg

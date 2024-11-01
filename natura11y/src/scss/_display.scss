@@ -1,0 +1,54 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$display-types: block, inline, inline-block, flex, inline-flex, grid, inline-grid, none, initial;
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @each $value in $display-types {
+                .display-#{$value}#{$mod} {
+                    display: $value;
+                    
+                    @if $value == none {
+                        &.collapse {
+                            display: $value !important;
+                        }
+                    }
+                    
+                    @if $value == flex or $value == inline-flex {
+                        &[class*="gap-"] {
+                            gap: var(--gap-size);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+} // end @layer

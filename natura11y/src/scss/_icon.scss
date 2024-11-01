@@ -1,0 +1,104 @@
+/*
+
+In this file:
+
+// A. Variables
+// B. Selectors
+// C. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Variables
+//////////////////////////////////////////////
+
+:root {
+  --icon-size: 1.25em;
+  
+  --icon-font-family: 'natura11y-icons';
+}
+
+//////////////////////////////////////////////
+// B. Selectors
+//////////////////////////////////////////////
+
+@layer base {
+
+  [class*="fa-"][class*="fa-"],
+  span.icon {
+    
+    font-size: var(--icon-size);
+
+    display: inline-flex;
+
+    vertical-align: middle;
+
+    position: relative;
+
+    pointer-events: none;
+  }
+
+  span.icon {
+    &[class*="-left"], 
+    &[class*="-right"],
+    &[class*="-checked"],
+    &[class*="-confirm"] {
+      [dir="rtl"] & {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  svg.icon {
+    --icon-size: 48px;
+
+    display: block;
+    
+    width: var(--icon-size);
+    height: var(--icon-size);
+    
+    fill: currentColor;
+  }
+
+  .natura11y-icons-sprite {
+    width: 0;
+    height: 0;
+    
+    display: none;
+  }
+
+} // end @layer
+
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+  // Icon Font
+
+  .icon_font {
+    font-family: var(--icon-font-family);
+    font-size: var(--icon-size);
+    font-style: normal;
+  }
+
+  // Rotating (loading)
+
+  .icon-loading {
+    &.icon--rotate {
+      animation: rotate360 0.25s linear infinite;
+    }
+  }
+
+  @keyframes rotate360 {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+} // end @layer

@@ -1,0 +1,86 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+////////////////////////////////////////
+// A. Modules
+////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$positions: static, relative, absolute, fixed;
+
+:root {
+    --position-sticky-offset: 0;
+}
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+
+            @each $position in $positions {
+                .position-#{$position}#{$mod} {
+                    position: $position;
+                }
+            }
+
+            .position-absolute#{$mod},
+            .position-top-left#{$mod} {
+                position: absolute;
+                inset-block-start: 0;
+                inset-inline-end: unset;
+                inset-block-end: unset;
+                inset-inline-start: 0;
+            }
+
+            .position-top-right#{$mod} {
+                position: absolute;
+                inset-block-start: 0;
+                inset-inline-end: 0;
+                inset-block-end: unset;
+                inset-block-start: unset;
+            }
+
+            .position-bottom-right#{$mod} {
+                position: absolute;
+                inset-block-start: unset;
+                inset-inline-end: 0;
+                inset-block-end: 0;
+                inset-inline-start: unset;
+            }
+
+            .position-bottom-left#{$mod} {
+                position: absolute;
+                inset-inline-start: unset;
+                inset-inline-end: unset;
+                inset-block-end: 0;
+                inset-inline-start: 0;
+            }
+
+            .position-sticky-top#{$mod} {
+                position: sticky;
+                inset-block-start: var(--position-sticky-offset);
+            }
+
+        }
+    }
+
+} // end @layer

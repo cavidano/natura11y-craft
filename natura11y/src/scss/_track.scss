@@ -1,0 +1,287 @@
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use 'sass:math';
+@use './breakpoint';
+@use './spacing';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --visible-panels: 1;
+
+    --panel-peeking: calc(var(--container-padding-x) * 4);
+}
+
+$track-panels: 8;
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Track Block
+
+    .track,
+    .track__container {
+        position: relative;
+    }
+
+    .track {
+        display: grid;
+
+        gap: var(--gap-size, var(--spacer-2));
+
+        ul {
+            list-style: none;
+        }
+    }
+
+    // Track Container
+
+    :is(.track__prev, .track__next):not([class*='theme-']) {
+        --_background-color: var(--text-color);
+        --_text-color: var(--background-color);
+        
+        background-color: var(--_background-color) !important;
+        color: var(--_text-color) !important;
+    }
+
+    .track__container {
+        position: relative;
+        overflow: hidden;
+
+        .track__prev,
+        .track__next {
+            position: absolute;
+            inset-block-start: 50%;
+
+            z-index: 20;
+        }
+
+        .track__prev {
+            inset-inline-start: calc(var(--button-target-size) * 0.5);
+            transform: translateY(-50%) translateX(calc(var(--_peeking, var(--button-target-size)) - var(--button-target-size)));
+        }
+
+        .track__next {
+            inset-inline-end:  calc(var(--button-target-size) * 0.5);
+            transform: translateY(-50%) translateX(calc(-1 * var(--_peeking, var(--button-target-size)) + var(--button-target-size)));
+        }
+    }
+
+    // Track Panels (Scrollable <ul>)
+
+    .track__panels {  
+        position: relative;
+
+        display: grid;
+
+        grid-auto-columns: calc((100% / var(--visible-panels)) - (var(--gap-size, 0px) * ((var(--visible-panels) - 1) / var(--visible-panels))));
+
+        grid-auto-flow: column;
+
+        gap: var(--gap-size);
+
+        overflow-x: scroll;
+
+        scroll-snap-type: inline mandatory;
+
+        scroll-behavior: smooth;
+
+        li {
+            position: relative;
+        }
+
+        /* Hide scrollbars */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+            
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    .track__panel {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+
+        scroll-snap-align: start;
+
+        > * {
+            max-width: 100%;
+        }
+
+        > *:is(img, video) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // Track Controls
+
+    .track__controls {
+        --_track-control-layout: "pagination prev next";
+        --_track-control-columns: 1fr auto auto;
+        
+        display: grid;
+        align-items: center;
+        
+        gap: 0.75em;
+
+        grid-template-columns: var(--_track-control-columns);
+        grid-template-areas: var(--_track-control-layout);
+
+        .track__pagination {
+            grid-area: pagination;
+        }
+
+        .track__prev {
+            grid-area: prev;
+        }
+
+        .track__next {
+            grid-area: next;
+        }
+    }
+
+    .track__prev,
+    .track__next {
+        font-size: var(--font-size-md);
+    }
+
+    .track__pagination {
+        --_justify-pages: start;
+
+        display: flex;
+        justify-content: var(--_justify-pages);
+        
+        gap: 0.75em;
+
+        font-size: var(--font-size-sm);
+
+        [data-page-index] {
+            --_size: calc(var(--button-target-size) * 0.75);
+
+            container-type: inline-size;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: var(--_size);
+
+            font-weight: bold;
+
+            aspect-ratio: 1 / 1;
+
+            background-color: currentColor;
+            border-radius: var(--button-border-radius);
+
+            cursor: pointer;
+
+            &::before {
+                font-weight: var(--font-weight-bold);
+
+                display: none;
+            }
+
+            &:is(
+                .active,
+                [aria-current='true']) 
+            {
+                --border-color: currentColor;
+
+                background-color: transparent;
+
+                border-width: calc(var(--border-width) * 2);
+                border-style: var(--border-style);
+
+                &::before {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    // Track Peeking Modifier
+    
+    .track--peeking:not(.hide-controls) {
+        --_peeking: var(--panel-peeking);
+
+        .track__container {
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                inset-block: 0;
+
+                width: var(--panel-peeking);
+                
+                background: var(--background-color);
+
+                opacity: 1;
+
+                z-index: 10;
+            }
+
+            &::before {
+                inset-inline-start: 0;
+                mask-image: linear-gradient(to left, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 1));
+            }
+
+            &::after {
+                inset-inline-end: 0;
+                mask-image: linear-gradient(to right, hsla(0, 0%, 0%, 0.5), hsla(0, 0%, 0%, 1));
+            }
+        }
+
+        .track__panels {
+            padding-inline: var(--panel-peeking);
+        }
+
+        .track__panel {
+            scroll-margin: var(--panel-peeking);
+        }
+
+        > .track__pagination {
+            --_justify-pages: center;
+            
+            margin-inline: var(--panel-peeking);
+        }
+    }
+
+    // Hide Controls (via JavaScript)
+    
+    .hide-controls :is(
+        .track__controls,
+        .track__prev,
+        .track__next,
+        .track__pagination
+    ) {
+        --_peeking: 0;
+        display: none;
+    }
+
+    // Generate responsive utility classes for different numbers of visible panels
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @for $i from 1 through $track-panels {
+                .track--column-#{$i}#{$mod} {
+                    --visible-panels: #{$i};
+                }
+            }
+        }
+    }
+
+} // end @layer

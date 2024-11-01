@@ -1,0 +1,52 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+ 
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$opacities: (
+    10: 10%,
+    20: 20%,
+    30: 30%,
+    40: 40%,
+    50: 50%,
+    60: 60%,
+    70: 70%,
+    80: 80%,
+    90: 90%
+);
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @each $name, $value in $opacities {
+                .opacity-#{$name}#{$mod} {
+                    filter: opacity($value);
+                }
+            }
+        }
+    }
+
+} // end @layer

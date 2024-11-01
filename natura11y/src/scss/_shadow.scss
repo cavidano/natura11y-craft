@@ -1,0 +1,100 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+
+    // Box Shadow
+    
+    --box-shadow-hsl: 0 0% 0%;
+
+    --box-shadow-base-size: 0.5em;
+    
+    --box-shadow-base-opacity: 0.125;
+
+    // Text Shadow
+    
+    --text-shadow-hsl: 0 0% 0%;
+    
+    --text-shadow-base-size: 0.25rem;
+    
+    --text-shadow-base-opacity: 0.5;
+}
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    // Box Shadow
+
+    [class*="box-shadow-"] {
+        --shadow-opacity: 0;
+
+        box-shadow:
+            0 calc(var(--box-shadow-base-size) * 0.25) calc(var(--box-shadow-base-size) * 1) hsla(var(--box-shadow-hsl) / calc(var(--shadow-opacity) * 1)),
+            0 calc(var(--box-shadow-base-size) * 1) calc(var(--box-shadow-base-size) * 2) hsla(var(--box-shadow-hsl) / calc(var(--shadow-opacity) * 0.5)),
+            0 calc(var(--box-shadow-base-size) * 1.5) calc(var(--box-shadow-base-size) * 3) hsla(var(--box-shadow-hsl) / calc(var(--shadow-opacity) * 0.25));
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+            
+            .box-shadow-1#{$mod} {
+                --box-shadow-base-size: 0.25rem;
+                --shadow-opacity: var(--box-shadow-base-opacity);
+            }
+
+            .box-shadow-2#{$mod} {
+                --box-shadow-base-size: 1rem;
+                --shadow-opacity: var(--box-shadow-base-opacity);
+            }
+
+            .box-shadow-3#{$mod} {
+                --box-shadow-base-size: 2rem;
+                --shadow-opacity: var(--box-shadow-base-opacity);
+            }
+        }
+    }
+
+    // Text Shadow
+
+    [class*="text-shadow"] {
+        --shadow-opacity: 0;
+
+        text-shadow:
+            0 calc(var(--text-shadow-base-size) * 0.25) calc(var(--text-shadow-base-size) * 1) hsla(var(--text-shadow-hsl) / calc(var(--shadow-opacity) * 1)),
+            2px calc(var(--text-shadow-base-size) * 1) calc(var(--text-shadow-base-size) * 2) hsla(var(--text-shadow-hsl) / calc(var(--shadow-opacity) * 0.5)),
+            4px calc(var(--text-shadow-base-size) * 1.5) calc(var(--text-shadow-base-size) * 3) hsla(var(--text-shadow-hsl) / calc(var(--shadow-opacity) * 0.25)),
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+            
+            .text-shadow#{$mod} {
+                --shadow-opacity: var(--text-shadow-base-opacity);
+            }
+        }
+    }
+
+} // end @layer

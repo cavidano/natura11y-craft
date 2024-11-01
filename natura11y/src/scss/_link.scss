@@ -1,0 +1,100 @@
+/*
+
+In this file:
+
+// A. Generic Links
+// B. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Generic Links
+//////////////////////////////////////////////
+
+@layer base {
+
+    a {
+        color: currentColor;
+    }
+
+    p > a {
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    a[data-logo="brand"] {
+        display: inline-block;
+
+        &:focus-visible {
+            opacity: 0.85;
+        }
+
+        > svg {
+            fill: currentColor;
+            display: block;
+        }
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// B. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    // Link with Icon
+
+    .link {
+        font-weight: var(--button-font-weight);
+        
+        &:not([class*="text-color-"]) {
+            color: var(--link-color);
+        }
+
+        &:not(:has([class*="icon"])) {
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Has Icon Modifiers
+
+    [class*="link--has-icon"] {
+        --icon-size: 1em;
+
+        display: inline-flex;
+        align-items: center;
+
+        gap: 0.5em;
+
+        &:hover,
+        &:focus {
+            [class*="__text"] {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // Link Expanded  
+
+    .link-expanded {
+        &::before {
+            position: absolute;
+            content: "";
+            
+            inset: 0;
+            
+            z-index: 1;
+
+            pointer-events: auto;
+        }
+    }
+
+} // end @layer

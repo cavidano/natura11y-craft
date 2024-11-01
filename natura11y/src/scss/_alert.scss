@@ -1,0 +1,143 @@
+/*
+
+In this file:
+
+// A. Variables
+// B. Component
+
+*/
+
+//////////////////////////////////////////////
+// A. Variables
+//////////////////////////////////////////////
+
+:root {
+    --alert-padding-x: var(--spacer-2);
+    
+    --alert-padding-y: var(--spacer-2);
+}
+
+//////////////////////////////////////////////
+// B. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Alert Block
+
+    .alert {
+        position: relative;
+
+        &:not(
+            [class*="theme-"],
+            [class*="--inverse"],
+            [class*="background-"]
+        ) {
+            background-color: var(--subtle-fill-2);
+        }    
+
+        &[class*="border"] {
+            border-color: currentColor !important;
+        }
+
+        a {
+            color: inherit !important;
+        }
+    }
+
+    // Alert Elements
+
+    .alert__title, 
+    .alert__description {
+        position: relative;
+    }
+
+    .alert__title,
+    .alert__foot {
+        padding: var(--alert-padding-y) var(--alert-padding-x);
+    }
+
+    .alert__title {
+        display: flex;
+        align-items: center;
+        
+        .icon {
+            --icon-size: 1.25em;
+        }
+
+        &.text-align-center,
+        .text-align-center & {
+            justify-content: center;
+        }
+
+        &.text-align-right,
+        .text-align-right & {
+            justify-content: flex-end;
+        }
+    }
+
+    .alert__title__text {
+        font-weight: var(--font-weight-bold);
+
+        margin-inline-start: var(--spacer-2);
+    }
+
+    .alert__description {
+        p:not(:last-child) {
+            margin-block-end: 0.5em;
+        }
+    }
+
+    .alert__title + .alert__description {
+        padding-inline: var(--alert-padding-x);
+        padding-block-end: var(--alert-padding-y);
+    }
+
+    // Alert Dismissable Modifier
+
+    .alert--dismissable { 
+        display: grid;
+
+        > [class*="__title"] {
+            grid-area: title;
+
+            margin-block: auto;
+        }
+
+        > [class*="button"] {
+            grid-area: close;
+            
+            font-size: 80%;
+            
+            margin: var(--alert-padding-y) var(--alert-padding-x);
+        }
+
+        > [class*="__description"] {
+            grid-area: description;
+        }
+
+        grid-template-columns: 1fr auto;
+        
+        grid-template-areas:
+            "title close"
+            "description description";
+    }
+
+    .dismissed {
+        animation-duration: 0.5s;
+        animation-name: fadeOut;
+    }
+
+    @keyframes fadeOut {
+
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    
+    }
+
+} // end @layer

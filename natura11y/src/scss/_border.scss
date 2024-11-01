@@ -1,0 +1,194 @@
+
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+@use './color';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --border-width: 1px;
+    
+    --border-style: solid;
+
+    // Border Radius
+
+    --border-radius-base: 1rem; // 16px
+
+    --border-radius-0: 0;
+    --border-radius-1: calc(var(--border-radius-base) * 0.25);  // 4px
+    --border-radius-2: calc(var(--border-radius-base) * 0.5);   // 8px
+    --border-radius-3: calc(var(--border-radius-base) * 1);     // 16px
+
+    --border-radius-pill: 9999px; // An exaggerated large number for pill shape
+}
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    [class*="border"]{
+        border-color: var(--border-color, inherit);
+    }
+
+    // Directional
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            .border#{$mod} {
+                border-width: var(--border-width);
+                border-style: var(--border-style);
+            }
+
+            .border-top#{$mod} {
+                border-block-start-width: var(--border-width);
+                border-block-start-style: var(--border-style);
+            }
+
+            .border-right#{$mod} {
+                border-inline-end-width: var(--border-width);
+                border-inline-end-style: var(--border-style);
+            }
+
+            .border-bottom#{$mod} {
+                border-block-end-width: var(--border-width);
+                border-block-end-style: var(--border-style);
+            }
+
+            .border-left#{$mod} {
+                border-inline-start-width: var(--border-width);
+                border-inline-start-style: var(--border-style);
+            }
+
+            .border-y#{$mod} {
+                border-block-start-width: var(--border-width);
+                border-block-start-style: var(--border-style);
+                border-block-end-width: var(--border-width);
+                border-block-end-style: var(--border-style);
+            }
+
+            .border-x#{$mod} {
+                border-inline-start-width: var(--border-width);
+                border-inline-start-style: var(--border-style);
+                border-inline-end-width: var(--border-width);
+                border-inline-end-style: var(--border-style);
+            }
+
+        }
+    }
+
+    // Color 
+
+    @each $name, $color-map in color.$theme-colors {
+
+        .border-color-#{$name} {
+            border-color: map.get( $color-map, "swatch");
+        }
+
+        .border-block-start-color-#{$name} {
+            border-block-start-color: map.get($color-map, "swatch");
+        }
+
+        .border-right-color-#{$name} {
+            border-inline-end-color: map.get($color-map, "swatch");
+        }
+
+        .border-block-end-color-#{$name} {
+            border-block-end-color: map.get($color-map, "swatch");
+        }
+
+        .border-left-color-#{$name} {
+            border-inline-start-color: map.get($color-map, "swatch");
+        }
+    }
+
+    // Radius
+
+    [class*="border-radius"]{
+        overflow: hidden;
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            // Iterate over each border-radius size
+            @for $i from 0 through 3 {
+
+                .border-radius-#{$i}#{$mod} {
+                    border-radius: var(--border-radius-#{$i});
+                }
+
+                // Side specific
+
+                .border-radius-top-#{$i}#{$mod} {
+                    border-start-start-radius: var(--border-radius-#{$i});
+                    border-start-end-radius: var(--border-radius-#{$i});
+                }
+
+                .border-radius-right-#{$i}#{$mod} {
+                    border-start-end-radius: var(--border-radius-#{$i});
+                    border-end-end-radius: var(--border-radius-#{$i});
+                }
+
+                .border-radius-bottom-#{$i}#{$mod} {
+                    border-end-end-radius: var(--border-radius-#{$i});
+                    border-end-start-radius: var(--border-radius-#{$i});
+                }
+
+                .border-radius-left-#{$i}#{$mod} {
+                    border-start-start-radius: var(--border-radius-#{$i});
+                    border-end-start-radius: var(--border-radius-#{$i});
+                }
+
+                // Corner specific
+
+                .border-radius-top-left-#{$i}#{$mod} {
+                    border-start-start-radius: var(--border-radius-#{$i});
+                }
+
+                .border-radius-top-right-#{$i}#{$mod} {
+                    border-start-end-radius: var(--border-radius-#{$i});
+                }
+
+                .border-radius-bottom-right-#{$i}#{$mod} {
+                    border-end-end-radius: var(--border-radius-#{$i});
+                }
+                
+                .border-radius-bottom-left-#{$i}#{$mod} {
+                    border-end-start-radius: var(--border-radius-#{$i});
+                }
+            }
+
+            // Special case for pill
+            .border-radius-pill#{$mod} {
+                border-radius: var(--border-radius-pill);
+            }
+
+            // Special case for circle
+            .border-radius-circle#{$mod} {
+                border-radius: 100%;
+            }
+        }
+    }
+
+} // end @layer

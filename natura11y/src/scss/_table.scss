@@ -1,0 +1,254 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Table Block
+// D. Table Modifiers
+// E. Table Scroll Block
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --table-cell-padding-x: var(--spacer-3);
+    
+    --table-cell-padding-y: 0.75em;
+
+    --table-font-size: var(--font-size-md);
+ 
+    --table-scroll-min-width: 800px;
+}
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    .table {
+        
+        table-layout: fixed;
+
+        width: 100%;
+        
+        border-collapse: collapse;
+
+        font-size: var(--table-font-size);
+
+        caption-side: bottom;
+
+        caption {
+            border-block-start-width: var(--border-width);
+            border-block-start-style: var(--border-style);
+
+            padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+            
+            font-size: var(--font-size-sm);
+            
+            text-align: start;
+            
+            opacity: 0.75;
+        }
+
+        :is(
+            th, 
+            td 
+        ) {
+            padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+            text-align: inherit;
+            vertical-align: top;
+        }
+
+        td {
+            border-block-start-width: var(--border-width);
+            border-block-start-style: var(--border-style);
+        }
+
+        thead {
+
+            th {
+                vertical-align: bottom;
+            }
+
+            tr {
+                border-block-start-style: unset;
+            }
+        }
+    }
+
+    // Modifiers
+
+    .table--striped {
+        tbody tr:nth-of-type(odd) td {
+            background-color: var(--subtle-fill-1);
+        }
+    }
+
+    .table--va-middle {
+        tbody td {
+            vertical-align: middle;
+        }
+    }
+
+    .table--divider {
+        border-collapse: collapse;
+        
+        :is(
+            th, 
+            td 
+        ) {
+            &:not(:first-child){
+                border-inline-start-width: var(--border-width);
+                border-inline-start-style: var(--border-style);
+            }
+        }
+    }
+
+    .table--edge {
+
+        :is(
+            th, 
+            td 
+        ) {
+            &:first-child {
+                padding-inline-start: 0;
+            }
+
+            &:last-child {
+                padding-inline-end: 0;
+            }
+        }
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+
+        @include breakpoint.breakpoint-down($breakpoint) {
+        
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+            
+            .table--stack#{$mod} {
+
+                thead {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+                tr:not(:first-child) {
+                    border-block-start-width: calc(var(--border-width) * 2);
+                    border-block-start-style: var(--border-style);
+                }
+
+                td {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+
+                    &:first-child{
+                        border: unset;
+                    }
+                }
+                
+                .td-content {
+                    text-align: end;
+                }
+
+                td::after {
+                    content: attr(data-header);
+                    font-weight: bold;
+                }
+
+                &.table--edge {
+                    td {
+                        padding-inline-start: 0;
+                        padding-inline-end: 0;
+                    }
+                }
+
+                &.table--divider {
+                    border-collapse: collapse;
+                }  
+            }
+        }
+    }
+
+    // E. Table Scroll Block
+    
+    .table-scroll {
+        position: relative;
+
+        caption {
+            text-align: left;
+        }
+
+        &[data-scroll=true] {
+            .table-scroll__container::after,
+            .table-scroll__help {
+                display: block;
+            }
+        }   
+    }
+
+    // F. Table Scroll Elements
+    
+    .table-scroll__help {
+        position: relative;
+
+        display: none;
+        
+        z-index: 400;
+        
+        margin-block-end: 0.5rem;
+        
+        opacity: 0.75;
+        
+        font-size: var(--font-size-sm);
+    }
+
+    .table-scroll__container {
+        position: relative;
+
+        overflow: auto;
+        
+        max-width: 100%;
+
+        table {
+            overflow: hidden;
+            min-width: var(--table-scroll-min-width);
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            bottom: 0;
+            inset-inline-start: 50%;
+
+            display: none;
+            
+            mask-image: linear-gradient(to left, hsl(0, 0%, 0%), transparent);
+            
+            pointer-events: none;
+            
+            z-index: 600;
+        }
+
+        &[data-scrolling=true]::after{
+            opacity: 0;
+        }
+    }
+
+} // end @layer

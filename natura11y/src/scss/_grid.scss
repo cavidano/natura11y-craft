@@ -1,0 +1,298 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Components
+// D. Gap and Order Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use 'sass:math';
+@use './breakpoint';
+@use './spacing';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$columns: 12;
+$rows: math.div($columns, 2);
+
+:root {
+    --grid-divider-gap: var(--spacer-3);
+
+    --grid-divider-border-width: var(--border-width);
+
+    --grid-divider-border-x-color: var(--canvas-border);
+    
+    --grid-divider-border-y-color: var(--canvas-border);
+
+    --grid-sidebar-width: var(--article-sidebar-width);
+}
+
+//////////////////////////////////////////////
+// C. Components
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Grid Block
+
+    .grid,
+    [class*="grid-sidebar"] {
+        display: grid;
+        
+        list-style: none;
+
+        &[class*="gap"] {
+            gap: var(--gap-size);
+        }
+    }
+
+    .grid {
+        > .form-entry {
+            margin: unset;
+        }
+    }
+
+    // Grid Modifiers
+
+    [class*="grid--column"] {
+        --columns: initial;
+        grid-template-columns: repeat(var(--columns), 1fr);
+    }
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @for $i from 1 through $columns {
+
+                .grid--column-#{$i}#{$mod} {
+                    --columns: #{$i};
+                }
+
+                .grid__colspan-#{$i}#{$mod}{
+                    grid-column: span #{$i};
+                }
+            }
+
+            @for $i from 2 through $rows {
+                
+                .grid__rowspan-#{$i}#{$mod}{
+                    grid-row: span #{$i};
+                }
+            }
+
+        }
+    }
+
+    // Grid Divider Modifier
+    
+    [class*="grid--divider"] {
+        --gap: var(--gap-size, var(--grid-divider-gap));
+    }
+
+    [class*="grid--divider"],
+    [class*="grid--divider"] > * {
+        position: relative;
+    }
+
+    [class*="grid--divider"] {
+        --divider-x-width: 100%;
+        --divider-x-height: var(--grid-divider-border-width);
+        --divider-y-width: var(--grid-divider-border-width);
+        --divider-y-height: 100%;
+
+        gap: var(--gap);
+        
+        overflow: hidden;
+
+        > * {
+            &::before,
+            &::after {
+                --shift-divider: calc(var(--gap) * 0.5);
+                --shift-border: calc(var(--grid-divider-border-width) * 0.5);
+
+                position: absolute;
+                content: "";
+            }
+        }
+
+        > *::before {
+            inset-block-start: 100%;
+            inset-inline-start: 0;
+
+            width: var(--divider-x-width);
+
+            height: var(--grid-divider-border-width);
+
+            margin-block-start: calc(var(--shift-divider) - var(--shift-border));
+            
+            background-color: var(--grid-divider-border-x-color);
+        }
+
+        > *::after {
+            inset-block-start: 0;
+            inset-inline-end: 0;
+
+            height: var(--divider-y-height);
+
+            width: var(--grid-divider-border-width);
+
+            margin-inline-end: calc( calc(var(--shift-divider) + var(--shift-border)) * -1 );
+
+            background-color: var(--grid-divider-border-y-color); 
+        }
+    }
+
+    .grid--divider--fill-x {
+        --divider-x-width: calc(100% + var(--gap));
+    }
+
+    .grid--divider--fill-y {
+        --divider-y-height: calc(100% + var(--gap));
+    }
+
+    // Grid Sidebar Components
+
+    [class*="grid-sidebar"] {
+        
+        &[class*="grid--divider"] > *::after {
+            display: none;
+        }
+
+        > [class*="major"] {
+            grid-area: major;
+        }
+
+        > [class*="minor"] {
+            grid-area: minor;
+        }
+    }
+
+    .grid-sidebar--left,
+    .grid-sidebar--right {
+        grid-template-areas: 
+            "minor"
+            "major";
+    }
+
+    .grid-sidebars {
+        
+        grid-template-areas: 
+            "minor-start"
+            "major"
+            "minor-end";
+
+        > [class*="major"] {
+            grid-area: major;
+        }
+
+        > [class*="minor-end"] {
+            grid-area: minor-end;
+        }
+
+        > [class*="minor-start"] {
+            grid-area: minor-start;
+        }
+    }
+
+    @include breakpoint.breakpoint-up(lg) {
+    
+        .grid-sidebar--left,
+        .grid-sidebar--right {
+            overflow: visible;
+
+            &[class*="grid--divider"] {
+                > *::before {
+                    display: none;
+                }
+            }
+        }
+
+        .grid-sidebar--left {
+
+            [class*="__minor"]::after {
+                display: block;
+            }
+
+            grid-template-columns: var(--grid-sidebar-width) 1fr;
+            grid-template-areas: "minor major";
+        }
+
+        .grid-sidebar--right {
+
+            [class*="__major"]::after {
+                display: block;
+            }
+
+            grid-template-columns: 1fr var(--grid-sidebar-width);
+            grid-template-areas: "major minor";
+        }
+        
+    }
+
+    @include breakpoint.breakpoint-up(xl) {
+
+        .grid-sidebars {
+            overflow: visible;
+            
+            &[class*="grid--divider"] {
+
+                > *::before {
+                    display: none;
+                }
+
+                > *:not(:last-child)::after {
+                    display: block;
+                }
+            }
+
+            grid-template-columns: var(--grid-sidebar-width) 1fr var(--grid-sidebar-width);
+            grid-template-areas: "minor-start major minor-end";
+        }
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// D. Gap and Order Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    // Gap
+
+    @each $spacer, $value in spacing.$spacers {
+        .gap-#{$spacer} {
+            --gap-size: #{$value};
+        }
+    }
+
+    .gap-border {
+        --gap-size: var(--border-width);
+    }
+
+    // Order
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @for $i from 1 through $columns {
+                .order-#{$i}#{$mod} {
+                    order: $i;
+                }
+            }
+        }
+    }
+
+} // end @layer

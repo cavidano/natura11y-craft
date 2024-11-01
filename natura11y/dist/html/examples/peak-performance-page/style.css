@@ -1,0 +1,118 @@
+/*
+
+// Backdrop
+
+*/
+
+
+@media screen and (max-width: 1024px) {
+    :root {
+        --type-scale: 1.1375;
+        --spacer-base: 0.675rem;
+    }
+    #introduction.backdrop {
+        --backdrop-fixed-height: 450px;
+    }
+}
+
+@layer component {
+
+    #introduction.backdrop {
+        --backdrop-fixed-height: 850px;
+    }
+}
+
+/*
+
+// Grid
+
+*/
+
+.grid--features {
+
+    display: grid;
+        
+    grid-gap: var(--spacer-2);
+
+    > .backdrop {
+        --backdrop-fixed-height: 0;
+        
+        aspect-ratio: 16 / 9;
+
+        align-self: stretch;
+
+        max-width: 100%;
+    }
+
+    > .backdrop {
+        &:nth-of-type(1) {
+            grid-area: primary;
+        }
+
+        &:nth-of-type(2) {
+            grid-area: secondary;
+        }
+
+        &:nth-of-type(3) {
+            grid-area: tertiary;
+        }
+    }
+
+    grid-template-areas:
+        "primary"
+        "secondary"
+        "tertiary";
+
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: 2fr 1fr;
+
+        grid-template-areas:
+            "primary secondary"
+            "primary tertiary";
+    
+        >  .backdrop:nth-of-type(2),
+        >  .backdrop:nth-of-type(3) {
+            aspect-ratio: unset;
+        }
+    }
+}
+
+/*
+
+// Thumbnail Button
+
+*/
+
+.thumb-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-inline-start: var(--spacer-3);
+
+    background-color: var(--canvas);
+
+    border-left: 0.4rem solid var(--secondary);
+
+    > p {
+        margin: unset;
+    }
+
+    &:hover [class*="__text"] {
+        text-decoration: underline;
+    }
+}
+
+.thumb-button__text { 
+    font-weight: var(--font-weight-bold);
+}
+
+.thumb-button__credit { 
+    font-size: var(--font-size-sm);
+display: block;
+opacity: 0.75;
+}
+
+.thumb-button__image {
+    max-width: 160px;
+}

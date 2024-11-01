@@ -1,0 +1,120 @@
+/*
+
+In this file:
+
+// A. Variables
+// B. Component
+
+*/
+
+//////////////////////////////////////////////
+// A. Variables
+//////////////////////////////////////////////
+
+:root {
+    --card-padding-x: var(--container-padding-x);
+    
+    --card-padding-y: 1rem;
+}
+
+//////////////////////////////////////////////
+// B. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Card Block 
+
+    .card {
+        position: relative;
+
+        display: flex;
+        
+        height: 100%;
+           
+        &:not([class*="card--horizontal"]) { 
+            flex-direction: column;  
+        }
+    }
+
+    // Card Elements
+
+    .card__head {
+        padding: calc(var(--card-padding-y) * 0.5) var(--card-padding-x);
+        font-size: var(--font-size-sm);
+    }
+
+    .card__body {
+        padding: var(--card-padding-y) var(--card-padding-x);
+    }
+
+    .card__foot {
+        padding: calc(var(--card-padding-y) * 0.75) var(--card-padding-x);
+        margin-top: auto;
+    }
+
+    // Card Horizontal Modifier
+
+    .card--horizontal {
+        display: grid;
+
+        grid-template-columns: 1fr 2fr;
+
+        .card__media {
+            grid-area: media;
+
+            > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .card__head {
+            grid-area: head;
+        }
+        
+        .card__body {
+            grid-area: body;
+        }
+        
+        .card__foot {
+            grid-area: foot;
+        }
+
+        /* Has header, media, body, and footer */
+        &:has([class*="__head"], [class*="__foot"]) {
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas: 
+                "media head"
+                "media body"
+                "media foot";
+        }
+
+        /* Has header, media, and body, but no footer */
+        &:has([class*="__head"]):not(:has([class*="__foot"])) {
+            grid-template-rows: auto 1fr;
+            grid-template-areas: 
+                "media head"
+                "media body";
+        }
+
+        /* Has media, body, and footer, but no header */
+        &:has([class*="__foot"]):not(:has([class*="__head"])) {
+            grid-template-rows: 1fr auto;
+            grid-template-areas: 
+                "media body"
+                "media foot";
+        }
+
+        /* Media and body only (no header, no footer) */
+        &:not(:has([class*="__head"], [class*="__foot"])) {
+            grid-template-rows: 1fr;
+            grid-template-areas: 
+                "media body";
+
+            align-items: center;
+        }
+    }
+
+} // end @layer

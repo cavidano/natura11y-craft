@@ -1,0 +1,302 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Component
+
+*/
+
+////////////////////////////////////////
+// A. Modules
+////////////////////////////////////////
+
+@use "./icon" as icon;
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+// Scoped to Block
+
+:root {
+  --lightbox-padding-x: var(--spacer-2);
+
+  --lightbox-padding-y: var(--spacer-2);
+
+  --lightbox-text-color: hsl(0, 0%, 100%);
+
+  --lightbox-overlay-color: hsl(0, 0%, 0%);
+  
+  --lightbox-overlay-opacity: 0.8;
+  
+  --lightbox-media-border-radius: 0;
+
+  --lightbox-media-shadow: 0 0.125rem 1rem 0.5rem rgba(0, 0, 0, 0.25);
+  
+  --lightbox-z-index: 10000;
+
+  --lightbox-caption-text-align: center;
+
+  // Icons
+
+  --lightbox-thumbnail-icon-image: "\f160";
+  
+  --lightbox-thumbnail-icon-video: "\f163";
+}
+
+////////////////////////////////////////
+// C. Selector Resets
+////////////////////////////////////////
+
+@layer base {
+
+    video {
+        display: block;
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+  // Lightbox Block
+
+  .lightbox,
+  .lightbox-thumbnail {
+    color: var(--lightbox-text-color);
+  }
+
+  .lightbox,
+  .lightbox::before {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .lightbox {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    padding: var(--lightbox-padding-y) var(--lightbox-padding-x);
+    
+    z-index: var(--lightbox-z-index);
+
+    overflow-y: scroll;
+
+    &::before {
+        content: "";
+
+        background-color: var(--lightbox-overlay-color);
+        
+        opacity: var(--lightbox-overlay-opacity);
+
+        z-index: -1;
+        
+        pointer-events: none;
+    }
+
+    &[aria-hidden="true"] {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  // Lightbox Button
+
+  .lightbox-thumbnail {
+    --button-icon-only-size: 1.25em;
+
+    display: flex;
+
+    text-align: center;
+
+    position: relative;
+
+    cursor: pointer;
+
+    &::after {
+      @extend .icon_font;
+
+      --button-icon: var(--lightbox-thumbnail-icon-image);
+
+      content: var(--button-icon);
+
+      display: inline-flex;
+      flex-shrink: 0;
+
+      align-items: center;
+      justify-content: center;
+
+      width: var(--button-icon-only-size);
+      height: var(--button-icon-only-size);
+
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-end: 0;
+
+      opacity: var(--lightbox-overlay-opacity);
+
+      background-color: var(--lightbox-overlay-color);
+
+      aspect-ratio: 1 / 1;
+
+      width: var(--button-icon-only-size);
+    }
+    
+    &[data-lightbox="video"]::after {
+      --button-icon: var(--lightbox-thumbnail-icon-video);
+      --icon-size: 1.75em;
+
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+
+      border-radius: 100%;
+    }
+  
+  }
+
+  // Lightbox Elements
+
+  .lightbox__controls {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 0.5em;
+    
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+
+    z-index: 10;
+
+    padding: var(--lightbox-padding-y) var(--lightbox-padding-x);
+
+    button {
+      backdrop-filter: blur(4px) brightness(50%);
+    }
+
+    pointer-events: none;
+
+    button {
+      pointer-events: auto;
+    }
+
+  }
+
+  // Lightbox Container
+
+  .lightbox__container {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 350px;
+
+    margin: auto;
+  }
+
+  // Lightbox Media
+
+  .lightbox__media {
+    position: relative;
+    max-width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    
+    img,
+    video,
+    iframe {
+      display: block;
+
+      margin: auto;
+      
+      width: 100%;
+      height: 100%;
+      
+      object-fit: contain;
+
+      border-radius: var(--lightbox-media-border-radius);
+      overflow: hidden;
+
+      box-shadow: var(--lightbox-media-shadow);
+    }
+
+    img {
+      min-width: 100%;
+    }
+
+    video, 
+    iframe {
+      max-width: 100%;
+      max-height: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    iframe {
+    width: 1600px;
+      aspect-ratio: 16 / 9;
+
+      background-color: var(--lightbox-overlay-color);
+    }
+
+    &:focus-within {
+      outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-outline-color);
+    }
+
+  }
+
+  // Lightbox Caption
+
+  .lightbox__caption {
+    display: table-caption;
+
+    font-size: var(--font-size-md);
+
+    text-align: var(--lightbox-caption-text-align);
+
+    margin-block: var(--lightbox-padding-y);
+  }
+
+  // Lightbox Media States
+
+  .lightbox__media__loader {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+
+      transform: translate(-50%, -50%);
+  }
+    
+  .lightbox__media__error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+    min-width: 20rem;
+    margin-block: 0.25em;
+
+    span.icon {
+      font-size: 2em;
+
+    }
+  }
+  
+} // end @layer

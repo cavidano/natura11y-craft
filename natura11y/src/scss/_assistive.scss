@@ -1,0 +1,215 @@
+/*
+
+In this file:
+
+// A. Variables
+// B. Hover Focus
+// C. Utilities
+
+*/
+
+////////////////////////////////////////
+// A. Variables
+////////////////////////////////////////
+
+:root {
+    // Focus Outline
+    
+    --focus-outline-width: calc(var(--border-width) * 2);
+
+    --focus-outline-style: solid;
+
+    --focus-outline-offset: calc(var(--focus-outline-width) * -1);
+
+    /*
+    
+    Custom Focus Outline Color:
+    Uncomment the following line to set a custom focus outline color to all focusable elements.
+    This will override the default link color, which cannot be changed via the :root selector.
+    
+    */
+
+    // --focus-outline-color: currentColor;
+}
+
+//////////////////////////////////////////////
+// B. Placeholder
+//////////////////////////////////////////////
+
+%focus-visible {
+    outline: 
+        var(--focus-outline-width)
+        var(--focus-outline-style) 
+        var(--focus-outline-color, var(--link-color, currentColor));
+        
+    outline-offset: var(--focus-outline-offset);
+}
+
+//////////////////////////////////////////////
+// C. Focus Styles
+//////////////////////////////////////////////
+
+@layer base {
+
+    // Links, Buttons, and Generic Focusable Elements
+
+    :is(a, button) {
+
+        &:focus-visible {
+            @extend %focus-visible;
+        }
+
+        &:is(
+            [class*="backdrop"], 
+            [class*="card"]
+        ):focus-visible {
+            position: relative;
+            z-index: 1;
+
+            > * {
+                z-index: -1;
+            }
+        }
+        
+        &.button {
+            --focus-outline-offset: calc(var(--focus-outline-width) * -2);
+        }
+        
+        &[data-page-index] {
+            --focus-outline-offset: calc(var(--focus-outline-width) * 2);
+        }
+        
+        &:is(
+            .button--outline,
+            .lightbox-thumbnail,
+            [class*="backdrop"],
+            .tabs-nav--pill > li > :is(a, button)
+        ) {
+            --focus-outline-offset: calc(var(--focus-outline-width) * -3);
+        }
+
+    }
+
+    // Focusable Panels (e.g. Modal, Collapse)
+
+    [tabindex="-1"]:focus-visible {
+        @extend %focus-visible;
+        --focus-outline-offset: calc(var(--focus-outline-width) * -2);
+    }
+
+    // Form Elements
+
+    .is-focused {
+        .form-entry__field__select,
+        .form-entry__field__input {
+            @extend %focus-visible;
+            --focus-outline-offset: calc(var(--focus-outline-width) * 2);
+        }
+    }
+
+    .button--icon-over-text:focus-visible {
+        outline: unset !important;
+
+        > [class*="icon"] {
+            @extend %focus-visible;
+        }
+    }
+
+} // end @layer
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    // Shared Utilities
+
+    .focusable-only, 
+    .screen-reader-only {
+        position: absolute;
+    }
+
+    // Screen Reader Only Utility
+
+    .screen-reader-only {
+        overflow: hidden;
+
+        width: 1px;
+        height: 1px;
+        
+        clip: rect(0, 0, 0, 0);
+        
+        white-space: nowrap;
+    }
+
+    // Focusable Only Utility
+
+    .focusable-only {
+
+        &:not(:focus) { 
+            @extend .screen-reader-only;
+        }
+
+        inset-block-start: var(--spacer-1);
+        inset-inline-start: var(--spacer-1);
+
+        padding: var(--button-padding-y) var(--button-padding-x);
+
+        font-size: var(--font-size-sm);
+        
+        color: var(--dark);
+        
+        background-color: rgba( white, 0.95);
+        
+        box-shadow: 0 0 0.25rem currentColor;
+        
+        z-index: 25000;
+    }
+
+    // Skip Links Utility
+
+    .skip-links {
+
+        a {
+            @extend.focusable-only;
+
+            position: fixed;
+
+            inset-block-start: 0;
+            inset-inline-start: 0;
+
+            color: var(--link-color);
+
+            font-weight: var(--font-weight-bold);
+            margin: var(--spacer-2);
+
+            border-radius: var(--button-border-radius);
+            overflow: hidden;
+
+            &::before,
+            &::after {
+                content: "";
+                inset: 0;
+            }
+            
+            &::before {
+                position: absolute;
+                z-index: -1;
+
+                background-color: var(--background-color);
+            }
+
+            &::after {
+                position: fixed;
+
+                z-index: -2;
+
+                background-color: rgba(0, 0, 0, 0.5) !important;
+                
+                pointer-events: none;
+            }
+        }
+    }
+
+} // end @layer

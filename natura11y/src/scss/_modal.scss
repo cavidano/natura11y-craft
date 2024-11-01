@@ -1,0 +1,144 @@
+/*
+
+In this file:
+
+// A. Variables
+// B. Component
+// C. Body Class (via JS)
+
+*/
+
+//////////////////////////////////////////////
+// A. Variables
+//////////////////////////////////////////////
+
+:root {
+  --modal-padding-x: var(--spacer-2);
+
+  --modal-padding-y: var(--spacer-2);
+
+  --modal-overlay-color: #000;
+  
+  --modal-overlay-opacity: 0.75;
+  
+  --modal-z-index: 50000;
+} 
+
+//////////////////////////////////////////////
+// B. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+  // Modal Block
+  
+  .modal, 
+  .modal::before {
+    position: fixed;
+    inset: 0;
+  }
+
+  .modal {
+    --_display: grid;
+    
+    display: var(--_display);
+    align-content: center;
+
+    z-index: var(--modal-z-index);
+    
+    padding: var(--modal-padding);
+
+    &[class*="theme-"] {
+      background-color: transparent !important;
+    }
+    
+    &::before {
+        content: "";
+
+        background-color: var(--modal-overlay-color);
+        
+        opacity: var(--modal-overlay-opacity);
+
+        pointer-events: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(.shown) {
+      display: none;
+    }
+
+  }
+
+  // Modal Elements
+
+  .modal__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+
+    max-height: calc(100vh - (var(--modal-padding) * 2));
+
+    z-index: auto;
+    
+    background-color: inherit;
+    
+    margin-inline: auto;
+
+  }
+
+  .modal__content__head,
+  .modal__content__body, 
+  .modal__content__foot {
+    padding: var(--modal-padding-y) var(--modal-padding-x);
+  }
+
+  .modal__content__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--modal-padding-y) var(--modal-padding-x);
+
+    :is(
+      h1, .h1, 
+      h2, .h2, 
+      h3, .h3,
+      h4, .h4, 
+      h5, .h5, 
+      h6, .h6
+    ) {
+      margin-block-end: 0 !important;
+    }
+
+    button {
+      flex-shrink: 0;
+    }
+    
+  }
+
+  .modal__content__body {
+    flex-shrink: 1;
+    
+    overflow-y: auto;
+  }
+
+  // Modal Scroll All Modifier
+
+  .modal--scroll-all {
+    --_display: block;
+    
+    overflow-y: scroll;
+    
+    .modal__content {
+      margin-block: auto;
+    }
+
+  }
+
+} // end @layer

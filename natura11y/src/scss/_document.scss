@@ -1,0 +1,170 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Selector Resets
+// D. Overlay Class (set via JS)
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use './spacing';
+@use './color';
+
+////////////////////////////////////////
+// B. Variables
+////////////////////////////////////////
+
+:root {
+    --body-min-width: 325px;
+
+    --body-max-width: 100%;
+    
+    --body-min-height: 100%;
+
+    --html-scroll-behavior: smooth;
+}
+
+////////////////////////////////////////
+// C. Selector Resets
+////////////////////////////////////////
+
+@layer base {
+
+    * {
+        margin: 0;
+        padding: 0;
+
+        border: unset;
+
+        font-size: 100%;
+
+        vertical-align: baseline;
+
+        box-sizing: border-box;
+    }
+
+    img {
+        border-style: none;
+
+        vertical-align: middle;
+
+        max-width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        border: unset;
+
+        border-radius: unset;
+
+        color: inherit;
+
+        font-size: inherit;
+
+        &::-moz-focus-inner {
+            padding: 0;
+            border: 0
+        }
+    }
+
+    a, 
+    button{
+        > * {
+            pointer-events: none;
+        }
+    }
+
+    hr {
+        height: 0;
+    }
+
+    // Border Box
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    // HTML, Body 
+
+    html, 
+    body {
+        min-height: var(--body-min-height);
+    }
+
+    // HTML
+
+    html {
+        @extend .theme-canvas !optional;
+
+        font-size: 1rem;
+        line-height: 1.125;
+
+        text-size-adjust: 100%;
+
+        scroll-behavior: var(--html-scroll-behavior);
+    }
+
+    // Body
+
+    body {
+
+        font-family: sans-serif;
+
+        min-width: var(--body-min-width);
+        max-width: var(--body-max-width);
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        margin-inline: auto;
+    }
+
+    // Horizontal Rule
+
+    hr {
+        border-block-start: var(--border-width) var(--border-style);
+    }
+
+} // end @layer
+
+
+//////////////////////////////////////////////
+// D. Overlay Class (set via JS)
+//////////////////////////////////////////////
+
+@layer base {
+
+    html.has-overlay,
+    html.has-overlay > body {
+        position: fixed;
+        width: 100%;
+    }
+
+    html.has-overlay {
+        --top: var(--scroll-position, 0);
+
+        height: 100%;
+
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+
+        body {
+            top: var(--top);
+            margin-inline: auto;
+        }
+    }
+
+}

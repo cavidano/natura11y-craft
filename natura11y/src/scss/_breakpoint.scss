@@ -1,0 +1,70 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Breakpoints Functions
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1440px
+);
+
+$breakpoints: map.merge((null : 0), $breakpoints);
+
+//////////////////////////////////////////////
+// C. Breakpoints Functions
+//////////////////////////////////////////////
+
+// Name of the next breakpoint, or null for the last breakpoint.
+
+@function breakpoint-value($name, $breakpoint) {
+  $value: map.get($breakpoint, $name);
+  @return if($value != 0, $value, null);
+}
+
+@function breakpoint-modifier($name, $breakpoint) {
+  @return if(breakpoint-value($name, $breakpoint) == null, "", "--#{$name}");
+}
+
+//////////////////////////////////////////////
+// E. Breakpoints Mixins
+//////////////////////////////////////////////
+
+@mixin breakpoint-up($breakpoint) {
+  @if ($breakpoint != null) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  @if ($breakpoint != null) {
+    @media (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}

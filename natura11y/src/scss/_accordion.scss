@@ -1,0 +1,135 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Component
+
+*/
+
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use './icon';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+// Scoped to Block
+
+:root {
+    --accordion-button-padding-x: var(--container-padding-x);
+    --accordion-button-padding-y: 0.75em;
+
+    --accordion-panel-padding-x: var(--accordion-button-padding-x);
+    --accordion-panel-padding-y: 1em;
+    
+    --accordion-active-color: currentColor;
+
+    --accordion-icon-closed: "\f116";
+    --accordion-icon-open: "\f119";
+}
+
+//////////////////////////////////////////////
+// C. Component
+//////////////////////////////////////////////
+
+@layer component {
+
+    // Primary Accordion Block
+
+    .accordion {
+        display: grid;
+        
+        gap: var(--gap-size, 0.2em);
+    }
+
+    // Accordion Elements
+    
+    .accordion__button {
+        position: relative;
+        overflow: hidden;
+
+        background-color: var(--subtle-fill-1);
+
+        border-radius: var(--button-border-radius);
+
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        
+        width: 100%;
+
+        padding-block: var(--accordion-button-padding-y);
+        padding-inline: var(--accordion-button-padding-x);
+
+        margin-block-end: 0;
+
+        font-weight: var(--body-font-weight-bold);
+
+        text-align: start;
+
+        cursor: pointer;
+
+        &[aria-expanded="true"] {
+        
+            background-color: var(--subtle-fill-2);
+            
+            color: var(--accordion-active-color);
+
+            &::after {
+                content: var(--accordion-icon-open);
+            }
+        }
+        
+        &::after {
+            @extend .icon_font;
+
+            --icon-size: 0.875em;
+            
+            content: var(--accordion-icon-closed);
+
+            margin-inline-start: 0.75em;
+        }
+    }
+
+    .accordion__panel {
+        overflow: hidden;
+        
+        border-radius: var(--button-border-radius);
+
+        display: grid;
+        grid-template-rows: 0fr;
+
+        transition: grid-template-rows 0.3s ease-in;
+
+        &.shown {
+            grid-template-rows: 1fr;
+        }
+    }
+
+    .accordion__panel__content {
+        overflow: hidden;
+
+        padding-inline: var(--accordion-panel-padding-x);
+        
+        transition: 
+            opacity 0.3s ease-in-out, 
+            padding-top 0.5s ease-in-out,
+            padding-bottom 0.5s ease-in-out;
+
+        opacity: 0;
+
+        .shown & {
+            padding-top: var(--accordion-panel-padding-y);
+            padding-bottom: var(--accordion-panel-padding-y);
+            
+            opacity: 1;
+        }
+    }
+
+} // end @layer

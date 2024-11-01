@@ -1,0 +1,237 @@
+/*
+
+In this file:
+
+// A. Modules
+// B. Variables
+// C. Utilities
+
+*/
+
+//////////////////////////////////////////////
+// A. Modules
+//////////////////////////////////////////////
+
+@use 'sass:map';
+@use './breakpoint';
+
+//////////////////////////////////////////////
+// B. Variables
+//////////////////////////////////////////////
+
+:root {
+    --spacer-base: 1rem; // 16px
+
+    --spacer-1: calc(var(--spacer-base) * 0.5);     // 8px
+    --spacer-2: calc(var(--spacer-base) * 1);       // 16px
+    --spacer-3: calc(var(--spacer-base) * 1.5);     // 24px
+    --spacer-4: calc(var(--spacer-base) * 2.5);     // 40px
+    --spacer-5: calc(var(--spacer-base) * 4);       // 64px
+    --spacer-6: calc(var(--spacer-base) * 6.5);     // 104px
+}
+
+$spacers: (
+    1: var(--spacer-1), 
+    2: var(--spacer-2), 
+    3: var(--spacer-3), 
+    4: var(--spacer-4), 
+    5: var(--spacer-5),
+    6: var(--spacer-6),
+);
+
+//////////////////////////////////////////////
+// C. Utilities
+//////////////////////////////////////////////
+
+@layer utility {
+
+    @each $breakpoint in map.keys(breakpoint.$breakpoints) {
+        @include breakpoint.breakpoint-up($breakpoint) {
+            $mod: breakpoint.breakpoint-modifier($breakpoint, breakpoint.$breakpoints);
+
+            @each $spacer, $value in $spacers {
+
+                // Padding
+
+                .padding-#{$spacer}#{$mod} {
+                    padding: #{$value};
+                }
+
+                .padding-x-#{$spacer}#{$mod} {
+                    padding-inline: #{$value};
+                }
+
+                .padding-y-#{$spacer}#{$mod} {
+                    padding-block: #{$value};
+                }
+
+                .padding-top-#{$spacer}#{$mod} {
+                    padding-block-start: #{$value};
+                }
+
+                .padding-right-#{$spacer}#{$mod} {
+                    padding-inline-end: #{$value};
+                }
+
+                .padding-bottom-#{$spacer}#{$mod} {
+                    padding-block-end: #{$value};
+                }
+
+                .padding-left-#{$spacer}#{$mod} {
+                    padding-inline-start: #{$value};
+                }
+
+                // Margin
+
+                .margin-#{$spacer}#{$mod} {
+                    margin: #{$value};
+                }
+
+                .margin-x-#{$spacer}#{$mod} {
+                    margin-inline: #{$value};
+                }
+
+                .margin-y-#{$spacer}#{$mod} {
+                    margin-block: #{$value};
+                }
+
+                .margin-top-#{$spacer}#{$mod} {
+                    margin-block-start: #{$value};
+                }
+
+                .margin-right-#{$spacer}#{$mod} {
+                    margin-inline-end: #{$value};
+                }
+
+                .margin-bottom-#{$spacer}#{$mod} {
+                    margin-block-end: #{$value};
+                }
+
+                .margin-left-#{$spacer}#{$mod} {
+                    margin-inline-start: #{$value};
+                }
+
+                // Negative Margin
+
+                .margin-x-n#{$spacer}#{$mod} {
+                    margin-inline: calc(#{$value} * -1);
+                }
+
+                .margin-y-n#{$spacer}#{$mod} {
+                    margin-block: calc(#{$value} * -1);
+                }
+
+                .margin-top-n#{$spacer}#{$mod} {
+                    margin-block-start: calc(#{$value} * -1);
+                }
+
+                .margin-right-n#{$spacer}#{$mod} {
+                    margin-inline-end: calc(#{$value} * -1);
+                }
+
+                .margin-bottom-n#{$spacer}#{$mod} {
+                    margin-block-end: calc(#{$value} * -1);
+                }
+
+                .margin-left-n#{$spacer}#{$mod} {
+                    margin-inline-start: calc(#{$value} * -1);
+                }
+                    
+                // Zero and Auto
+                
+                .padding-0#{$mod} {
+                    padding: 0;
+                }
+                
+                .padding-x-0#{$mod} {
+                    padding-inline: 0;
+                }
+
+                .padding-y-0#{$mod} {
+                    padding-block: 0;
+                }
+
+                .padding-top-0#{$mod} {
+                    padding-block-start: 0;
+                }
+
+                .padding-right-0#{$mod} {
+                    padding-inline-end: 0;
+                }
+
+                .padding-bottom-0#{$mod} {
+                    padding-block-end: 0;
+                }
+
+                .padding-left-0#{$mod} {
+                    padding-inline-start: 0;
+                }
+
+                .padding-right-0#{$mod} {
+                    padding-block: 0;
+                }
+                
+                .margin-0#{$mod} {
+                    margin: 0;
+                }
+
+                .margin-x-0#{$mod} {
+                    margin-inline: 0;
+                }
+
+                .margin-y-0#{$mod} {
+                    margin-block: 0;
+                }
+
+                .margin-top-0#{$mod} {
+                    margin-top: 0;
+                }
+
+                .margin-right-0#{$mod} {
+                    margin-right: 0;
+                }
+
+                .margin-bottom-0#{$mod} {
+                    margin-bottom: 0;
+                }
+
+                .margin-left-0#{$mod} {
+                    margin-left: 0;
+                }
+
+                .margin-y-0#{$mod} {
+                    margin-block: 0;
+                }
+
+                .margin-x-0#{$mod} {
+                    margin-inline: 0;
+                }
+
+                .margin-x-auto#{$mod} {
+                    margin-inline: auto;
+                }
+
+                .margin-y-auto#{$mod} {
+                    margin-block: auto;
+                }
+
+                .margin-top-auto#{$mod} {
+                    margin-block-start: auto;
+                }
+
+                .margin-right-auto#{$mod} {
+                    margin-inline-end: auto;
+                }
+
+                .margin-bottom-auto#{$mod} {
+                    margin-block-end: auto;
+                }
+
+                .margin-left-auto#{$mod} {
+                    margin-inline-start: auto;
+                }
+            }
+        }
+    }
+
+} // end @layer
