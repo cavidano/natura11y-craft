@@ -1,0 +1,22 @@
+dateModified: 1730450485
+email:
+  fromEmail: carl@avidanodigital.com
+  fromName: 'Natura11y Craft'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    d564a43f-3e8f-49ed-a599-df6640d837c5: 'Natura11y Craft' # Natura11y Craft
+    f1ade01c-5513-48c6-ba5c-61d671ad8444: 'Natura11y Craft' # Natura11y Craft
+system:
+  edition: solo
+  live: true
+  name: 'Natura11y Craft'
+  schemaVersion: 5.3.0.2
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

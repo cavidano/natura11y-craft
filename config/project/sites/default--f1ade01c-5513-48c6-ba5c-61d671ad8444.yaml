@@ -1,0 +1,8 @@
+baseUrl: $PRIMARY_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: 'Natura11y Craft'
+primary: true
+siteGroup: d564a43f-3e8f-49ed-a599-df6640d837c5 # Natura11y Craft
+sortOrder: 1
