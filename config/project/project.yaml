@@ -1,4 +1,4 @@
-dateModified: 1730549820
+dateModified: 1730579190
 email:
   fromEmail: carl@avidanodigital.com
   fromName: 'Natura11y Craft'
@@ -13,10 +13,12 @@ fs:
     url: '@web/uploads/global-asset'
 meta:
   __names__:
-    1c5172e7-9eed-4ee0-9383-38ac0831d00d: Theming # Theming
+    1c5172e7-9eed-4ee0-9383-38ac0831d00d: 'Theme Colors' # Theme Colors
+    8da06d95-e6be-4ffe-96aa-97abe9318b70: 'Color Scheme' # Color Scheme
     9e3bd4d0-053b-4539-94d8-f4e755ca755e: 'Social Media' # Social Media
     97cf5dd0-3430-47f6-8f8c-757a736dfea6: 'Logo SVG' # Logo SVG
     256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7: 'Plain Text' # Plain Text
+    770cfc06-059b-41d8-9083-bf3215a0ed68: 'HTML Code' # HTML Code
     2731f8ce-9d28-4719-a7b5-7648654abd3a: 'Social Media URL' # Social Media URL
     10665a14-f1e0-402e-93bd-030cadf2e7a9: 'Social Media Channel' # Social Media Channel
     587855bf-d3e2-4b8d-bb33-b8a243f0c26b: 'Social Media Channels' # Social Media Channels
@@ -26,6 +28,11 @@ meta:
     e9751f72-d746-49b3-ad2f-a5b32abb0cb5: 'Global Assets' # Global Assets
     eb158f32-2e82-4a74-ac4d-7a2c751d8160: 'Brand Logo' # Brand Logo
     f1ade01c-5513-48c6-ba5c-61d671ad8444: 'Natura11y Craft' # Natura11y Craft
+plugins:
+  codefield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true

@@ -1,0 +1,43 @@
+columnSuffix: null
+handle: colorScheme
+instructions: null
+name: 'Color Scheme'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Light (Normal)'
+        -
+          - value
+          - light
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Dark Mode'
+        -
+          - value
+          - dark
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Prefers
+        -
+          - value
+          - prefers
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

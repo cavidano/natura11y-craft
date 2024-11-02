@@ -1,6 +1,21 @@
+{# Retrieve the Theme Colors global set and Color Scheme field #}
+{% set themeColors = craft.app.globals.getSetByHandle('themeColors') %}
+{% set colorScheme = themeColors.colorScheme ?? 'light' %}
+
+{# Determine the HTML class based on the selected Color Scheme #}
+{% set htmlClass = '' %}
+
+{% if colorScheme == 'light' %}
+    {% set htmlClass = '' %}
+{% elseif colorScheme == 'dark' %}
+    {% set htmlClass = 'theme-dark' %}
+{% elseif colorScheme == 'prefers' %}
+    {% set htmlClass = 'theme-canvas--prefers' %}
+{% endif %}
+
 <!DOCTYPE html>
 
-<html lang="en-US">
+<html class="{{ htmlClass }}" lang="en-US">
 
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />

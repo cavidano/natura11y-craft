@@ -1,7 +1,42 @@
 {% do craft.app.response.headers.set('Content-Type', 'text/css') %}
 
-{% set theme = craft.app.globals.getSetByHandle('theming') %}
+{% set theming = craft.app.globals.getSetByHandle('themeColors') %}
 
 :root {
+    {# Principle Pallette#}
+    
     {% if theming.primaryColor %}--primary: {{ theming.primaryColor.hex }};{% endif %}
+    {% if theming.primaryText %}--primary-text: {{ theming.primaryText.hex }};{% endif %}
+    {% if theming.primaryBorder %}--primary-border: {{ theming.primaryBorder.hex }};{% endif %}
+    {% if theming.primaryLink %}--primary-link: {{ theming.primaryLink.hex }};{% endif %}
+    {% if theming.primaryConfirm %}--primary-confirm: {{ theming.primaryConfirm.hex }};{% endif %}
+    {% if theming.primaryWarn %}--primary-warn: {{ theming.primaryWarn.hex }};{% endif %}
+
+    {% if theming.secondaryColor %}--secondary: {{ theming.secondaryColor.hex }};{% endif %}
+    {% if theming.secondaryText %}--secondary-text: {{ theming.secondaryText.hex }};{% endif %}
+    {% if theming.secondaryBorder %}--secondary-border: {{ theming.secondaryBorder.hex }};{% endif %}
+    {% if theming.secondaryLink %}--secondary-link: {{ theming.secondaryLink.hex }};{% endif %}
+    {% if theming.secondaryConfirm %}--secondary-confirm: {{ theming.secondaryConfirm.hex }};{% endif %}
+    {% if theming.secondaryWarn %}--secondary-warn: {{ theming.secondaryWarn.hex }};{% endif %}
+
+    {% if theming.darkColor %}--dark: {{ theming.darkColor.hex }};{% endif %}
+    {% if theming.darkText %}--dark-text: {{ theming.darkText.hex }};{% endif %}
+    {% if theming.darkBorder %}--dark-border: {{ theming.darkBorder.hex }};{% endif %}
+    {% if theming.darkLink %}--dark-link: {{ theming.darkLink.hex }};{% endif %}
+    {% if theming.darkConfirm %}--dark-confirm: {{ theming.darkConfirm.hex }};{% endif %}
+    {% if theming.darkWarn %}--dark-warn: {{ theming.darkWarn.hex }};{% endif %}
+    
+    {% if theming.lightColor %}--light: {{ theming.lightColor.hex }};{% endif %}
+    {% if theming.lightText %}--light-text: {{ theming.lightText.hex }};{% endif %}
+    {% if theming.lightBorder %}--light-border: {{ theming.lightBorder.hex }};{% endif %}
+    {% if theming.lightLink %}--light-link: {{ theming.lightLink.hex }};{% endif %}
+    {% if theming.lightConfirm %}--light-confirm: {{ theming.lightConfirm.hex }};{% endif %}
+    {% if theming.lightWarn %}--light-warn: {{ theming.lightWarn.hex }};{% endif %}
+    
+    {# {% if theming.canvasColor %}--canvas: {{ theming.canvasColor.hex }};{% endif %}
+    {% if theming.canvasText %}--canvas-text: {{ theming.canvasText.hex }};{% endif %}
+    {% if theming.canvasBorder %}--canvas-border: {{ theming.canvasBorder.hex }};{% endif %}
+    {% if theming.canvasLink %}--canvas-link: {{ theming.canvasLink.hex }};{% endif %}
+    {% if theming.canvasConfirm %}--canvas-confirm: {{ theming.canvasConfirm.hex }};{% endif %}
+    {% if theming.canvasWarn %}--canvas-warn: {{ theming.canvasWarn.hex }};{% endif %}   #}
 }

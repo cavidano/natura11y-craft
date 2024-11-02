@@ -1,0 +1,451 @@
+fieldLayouts:
+  2ac33e3d-6e64-4d46-9982-270241ecf993:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T11:12:21+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: '**Theme** settings let you customize the look and feel of your website. Adjust colors, fonts, and other visual elements to match your brand. Any changes you make here will be applied site-wide.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 452978dd-c8a4-4969-a828-e6f92a62b9a9
+            userCondition: null
+        name: 'Uising This Section'
+        uid: 170838e5-05cc-418f-9dd8-0592d15ed2ec
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T18:59:06+00:00'
+            elementCondition: null
+            fieldUid: 8da06d95-e6be-4ffe-96aa-97abe9318b70 # Color Scheme
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6cc1f032-e8d7-44b3-9a07-8d1fc6e72cf4
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Theme Mode'
+        uid: 5f2a7256-a8ee-44cf-a9da-a4c6897346c5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T10:13:55+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryColor
+            includeInCards: false
+            instructions: 'The primary color'
+            label: 'Primary Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2bb8958-5b81-4e86-8ce2-f6cd8d4cf2dc
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:47:14+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryText
+            includeInCards: false
+            instructions: null
+            label: 'Primary Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 82214aa9-23ae-4d73-a9d5-1cbae46b39d9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:47:14+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryBorder
+            includeInCards: false
+            instructions: null
+            label: 'Primary Border'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ef2b9b6-6dcd-4cec-9211-7d7466c9d392
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:47:14+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryLink
+            includeInCards: false
+            instructions: null
+            label: 'Primary Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 34e69e21-af91-4c64-a8aa-4d7a1dd7ee25
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:47:14+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryConfirm
+            includeInCards: false
+            instructions: null
+            label: 'Primary Confirm'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7662b08a-56d2-45bc-ad83-3bea79845780
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:50:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryWarn
+            includeInCards: false
+            instructions: null
+            label: 'Primary Warn'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c39825e6-5457-4416-9aaf-5a74a9966f52
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Primary Colors'
+        uid: 14c12e7e-f15f-44e2-ac63-be10e6e574d5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T12:13:52+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryColor
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84d10b37-0857-4bd3-8599-e461f1fd2f43
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:55:15+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryText
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70d47757-cfc5-42e7-87b1-5b472006bb91
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:55:15+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryBorder
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Border'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1708dedc-457f-423d-ba2e-180f5aa3f7f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:55:15+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryLink
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4b8ab632-7de0-4c50-a111-761231855b99
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:55:15+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryConfirm
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Confirm'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 48864027-cb3e-48e5-b5f7-5fa74d694334
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T18:55:15+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryWarn
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Warn'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c8a6a946-4e1c-4119-9c33-66be3a1342ae
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Secondary Colors'
+        uid: 4a9ba9e1-0fd6-44fd-a7a1-e37ce8e75f98
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkColor
+            includeInCards: false
+            instructions: null
+            label: 'Dark Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: decb386f-9638-49c0-9742-d2670ee9edaf
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkText
+            includeInCards: false
+            instructions: null
+            label: 'Dark Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7eacf44c-171a-4685-bcf9-f011f016c033
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkBorder
+            includeInCards: false
+            instructions: null
+            label: 'Dark Border'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ee6c7874-acaa-4818-ac5b-be7234999f26
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkLink
+            includeInCards: false
+            instructions: null
+            label: 'Dark Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6d253ce3-f149-41a6-b830-289889422422
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkConfirm
+            includeInCards: false
+            instructions: null
+            label: 'Dark Confirm'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a2935f08-caed-409c-acef-3fdd6a3233f0
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T19:53:04+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: darkWarn
+            includeInCards: false
+            instructions: null
+            label: 'Dark Warn'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 09002c8d-5c64-43d8-955a-52a711520975
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Dark Colors'
+        uid: b82349e9-9b4a-4624-823f-6f3c323e5601
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightColor
+            includeInCards: false
+            instructions: null
+            label: 'Light Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 70809e1c-d1bb-49ed-9e4a-f3c3e37f16e6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightText
+            includeInCards: false
+            instructions: null
+            label: 'Light Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e56cb42a-1fb7-405d-ae28-9bc3ec295009
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightBorder
+            includeInCards: false
+            instructions: null
+            label: LightBorder
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1be41ead-4ce7-4d68-bf12-fd0c104f4c3c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightLink
+            includeInCards: false
+            instructions: null
+            label: 'Light Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8d8ccb1-6b7f-4276-a15e-0c91462dd9b4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightConfirm
+            includeInCards: false
+            instructions: null
+            label: 'Light Confirm'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 96d897c6-a407-4a5f-b198-efd387f0dbad
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T20:13:58+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: lightWarn
+            includeInCards: false
+            instructions: null
+            label: 'Light Warn'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 21d0999c-0dae-4081-bf2e-748c5a7f996b
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Light Colors'
+        uid: 45cd8b1b-43ce-48a8-806d-c6e1247e990d
+        userCondition: null
+handle: themeColors
+name: 'Theme Colors'
+sortOrder: 3

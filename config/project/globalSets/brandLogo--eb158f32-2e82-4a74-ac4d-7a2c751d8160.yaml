@@ -21,18 +21,18 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2024-11-01T20:04:55+00:00'
+            dateAdded: '2024-11-02T20:22:39+00:00'
             elementCondition: null
-            fieldUid: 97cf5dd0-3430-47f6-8f8c-757a736dfea6 # Logo SVG
-            handle: null
+            fieldUid: 770cfc06-059b-41d8-9083-bf3215a0ed68 # HTML Code
+            handle: logoSvg
             includeInCards: false
             instructions: null
-            label: null
+            label: LogoSVG
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 71fc6d01-4c2e-4a02-813f-95d29181b4db
+            uid: df6d82e2-1ed7-4bb1-9787-602206d80149
             userCondition: null
             warning: null
             width: 100
