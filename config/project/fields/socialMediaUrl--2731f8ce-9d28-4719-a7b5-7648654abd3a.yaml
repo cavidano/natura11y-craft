@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: socialLink
+handle: socialMediaUrl
 instructions: null
-name: 'Social Link'
+name: 'Social Media URL'
 searchable: false
 settings:
   maxLength: 255

@@ -1,0 +1,7 @@
+{% do craft.app.response.headers.set('Content-Type', 'text/css') %}
+
+{% set theme = craft.app.globals.getSetByHandle('theming') %}
+
+:root {
+    {% if theming.primaryColor %}--primary: {{ theming.primaryColor.hex }};{% endif %}
+}

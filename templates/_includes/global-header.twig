@@ -1,19 +1,19 @@
 <header id="global-header">
 
-    {% set siteSettings = craft.app.globals.getSetByHandle('siteSettings') %}
+    {% set brandLogo = craft.app.globals.getSetByHandle('brandLogo') %}
     
     <div class="primary-nav--below--lg box-shadow-1 font-size-md">
 
         <div class="primary-nav__logo">
             <a href="{{ siteUrl }}" title="Home" aria-label="" data-logo="brand">
 
-                {% if siteSettings.logoSvg|length %}
+                {% if brandLogo.logoSvg|length %}
                     {# Render the SVG code directly if it's available #}
-                    <div class="svg-logo">{{ siteSettings.logoSvg|raw }}</div>
+                    <div class="svg-logo">{{ brandLogo.logoSvg|raw }}</div>
                 
-                {% elseif siteSettings.logoImage.one() %}
+                {% elseif brandLogo.logoImage.one() %}
                     {# Render the uploaded image as the logo #}
-                    <img src="{{ siteSettings.logoImage.one().url }}" alt="">
+                    <img src="{{ brandLogo.logoImage.one().url }}" alt="">
                 
                 {% else %}
                     {# Render a default SVG as a fallback if neither logo option is set #}

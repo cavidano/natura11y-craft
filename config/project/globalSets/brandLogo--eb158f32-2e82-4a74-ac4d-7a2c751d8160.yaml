@@ -36,31 +36,9 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Brand
+        name: 'Brand Logo'
         uid: 232a986d-5032-40d4-9d31-b0163414d60e
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2024-11-01T20:46:25+00:00'
-            elementCondition: null
-            fieldUid: 587855bf-d3e2-4b8d-bb33-b8a243f0c26b # Social Media Channels
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 0893a34a-feab-49a5-b23f-0caab2a975fa
-            userCondition: null
-            warning: null
-            width: 100
-        name: 'Social Media'
-        uid: 1b650a6d-3a2e-4379-ac30-d5e14ead4fbf
-        userCondition: null
-handle: siteSettings
-name: 'Site Settings'
+handle: brandLogo
+name: 'Brand Logo'
 sortOrder: 1

@@ -1,0 +1,37 @@
+fieldLayouts:
+  895d409c-85d3-46bd-90b9-bde749fec357:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T11:37:58+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Add your organization’s **social media** accounts here to display them as buttons in the footer.'
+            type: craft\fieldlayoutelements\Tip
+            uid: ec324305-cd2b-4f37-8430-d26813ac0586
+            userCondition: null
+          -
+            dateAdded: '2024-11-02T11:20:27+00:00'
+            elementCondition: null
+            fieldUid: 587855bf-d3e2-4b8d-bb33-b8a243f0c26b # Social Media Channels
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e99901b6-e847-489b-b935-2c4a3491f332
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Social Media Channels'
+        uid: 3e7734df-720e-40dd-89fa-82d8ed4db27d
+        userCondition: null
+handle: socialMedia
+name: 'Social Media'
+sortOrder: 2

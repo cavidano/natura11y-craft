@@ -38,7 +38,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-02T09:42:29+00:00'
             elementCondition: null
-            fieldUid: 2731f8ce-9d28-4719-a7b5-7648654abd3a # Social Link
+            fieldUid: 2731f8ce-9d28-4719-a7b5-7648654abd3a # Social Media URL
             handle: null
             includeInCards: false
             instructions: null

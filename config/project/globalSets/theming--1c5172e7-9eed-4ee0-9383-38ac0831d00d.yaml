@@ -1,0 +1,59 @@
+fieldLayouts:
+  2ac33e3d-6e64-4d46-9982-270241ecf993:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T11:12:21+00:00'
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: '**Theme** settings let you customize the look and feel of your website. Adjust colors, fonts, and other visual elements to match your brand. Any changes you make here will be applied site-wide.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 452978dd-c8a4-4969-a828-e6f92a62b9a9
+            userCondition: null
+          -
+            dateAdded: '2024-11-02T10:13:55+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: primaryColor
+            includeInCards: false
+            instructions: 'The primary color'
+            label: 'Primary Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2bb8958-5b81-4e86-8ce2-f6cd8d4cf2dc
+            userCondition: null
+            warning: null
+            width: 100
+        name: Primary
+        uid: 14c12e7e-f15f-44e2-ac63-be10e6e574d5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T12:13:52+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: secondaryColor
+            includeInCards: false
+            instructions: null
+            label: 'Secondary Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84d10b37-0857-4bd3-8599-e461f1fd2f43
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Secondary Colors'
+        uid: 4a9ba9e1-0fd6-44fd-a7a1-e37ce8e75f98
+        userCondition: null
+handle: theming
+name: Theming
+sortOrder: 3

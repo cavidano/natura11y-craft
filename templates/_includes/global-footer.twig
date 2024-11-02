@@ -98,14 +98,14 @@
                 </p>
 
                 {# Social Media #}
-                {% set socialMediaChannels = craft.app.globals.getSetByHandle('siteSettings').socialMediaChannels.all() %}
+                {% set socialMediaChannels = craft.app.globals.getSetByHandle('socialMedia').socialMediaChannels.all() %}
 
                 <ul class="nav nav--horizontal font-size-sm">
                     {% for entry in socialMediaChannels %}
                         <li>
                             <a
                                 class="button button--icon-only theme-dark border-radius-circle"
-                                href="{{ entry.socialLink }}"
+                                href="{{ entry.socialMediaUrl }}"
                                 aria-label="{{ entry.title }}"
                                 target="_blank"
                             >
