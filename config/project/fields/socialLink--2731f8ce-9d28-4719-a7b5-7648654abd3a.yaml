@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: linkFeild
+handle: socialLink
 instructions: null
-name: 'Link Feild'
+name: 'Social Link'
 searchable: false
 settings:
   maxLength: 255

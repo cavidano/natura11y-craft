@@ -97,24 +97,24 @@
                     Venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla.
                 </p>
 
+                {# Social Media #}
+                {% set socialMediaChannels = craft.app.globals.getSetByHandle('siteSettings').socialMediaChannels.all() %}
+
                 <ul class="nav nav--horizontal font-size-sm">
-                    <li>
-                        <a class="button button--icon-only theme-dark border-radius-circle" href="#1" aria-label="Facebook">
-                            <span class="icon icon-facebook" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="button button--icon-only theme-dark border-radius-circle" href="#1" aria-label="Facebook">
-                            <span class="icon icon-twitter-x" aria-hidden="true"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="button button--icon-only theme-dark border-radius-circle" href="#1" aria-label="Facebook">
-                            <span class="icon icon-instagram" aria-hidden="true"></span>
-                        </a>
-                    </li>
+                    {% for entry in socialMediaChannels %}
+                        <li>
+                            <a
+                                class="button button--icon-only theme-dark border-radius-circle"
+                                href="{{ entry.socialLink }}"
+                                aria-label="{{ entry.title }}"
+                                target="_blank"
+                            >
+                                <span class="icon icon-{{ entry.iconHandle }}" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
-                
+
             </div>
 
         </div>

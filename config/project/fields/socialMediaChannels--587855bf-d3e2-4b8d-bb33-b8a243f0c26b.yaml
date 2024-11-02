@@ -1,12 +1,12 @@
 columnSuffix: null
-handle: socialMediaLinks
+handle: socialMediaChannels
 instructions: 'Add links to social media profiles. Use this field to create and manage each profile link'
-name: 'Social Media Links'
+name: 'Social Media Channels'
 searchable: false
 settings:
   createButtonLabel: null
   entryTypes:
-    - 10665a14-f1e0-402e-93bd-030cadf2e7a9 # Social Media Link
+    - 10665a14-f1e0-402e-93bd-030cadf2e7a9 # Social Media Channel
   includeTableView: false
   maxEntries: null
   minEntries: null

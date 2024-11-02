@@ -1,4 +1,4 @@
-dateModified: 1730497424
+dateModified: 1730542435
 email:
   fromEmail: carl@avidanodigital.com
   fromName: 'Natura11y Craft'
@@ -13,10 +13,13 @@ fs:
     url: '@web/uploads/global-asset'
 meta:
   __names__:
+    1c5172e7-9eed-4ee0-9383-38ac0831d00d: 'Theme Colors' # Theme Colors
     97cf5dd0-3430-47f6-8f8c-757a736dfea6: 'Logo SVG' # Logo SVG
-    2731f8ce-9d28-4719-a7b5-7648654abd3a: 'Link Feild' # Link Feild
-    10665a14-f1e0-402e-93bd-030cadf2e7a9: 'Social Media Link' # Social Media Link
-    587855bf-d3e2-4b8d-bb33-b8a243f0c26b: 'Social Media Links' # Social Media Links
+    256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7: 'Plain Text' # Plain Text
+    2731f8ce-9d28-4719-a7b5-7648654abd3a: 'Social Link' # Social Link
+    10665a14-f1e0-402e-93bd-030cadf2e7a9: 'Social Media Channel' # Social Media Channel
+    587855bf-d3e2-4b8d-bb33-b8a243f0c26b: 'Social Media Channels' # Social Media Channels
+    52015185-6c75-42e2-b849-16af964e6f4b: 'Theme Color' # Theme Color
     a4638ec6-b512-436e-9c4f-13ab670a8309: 'Logo Image' # Logo Image
     d564a43f-3e8f-49ed-a599-df6640d837c5: 'Natura11y Craft' # Natura11y Craft
     e9751f72-d746-49b3-ad2f-a5b32abb0cb5: 'Global Assets' # Global Assets

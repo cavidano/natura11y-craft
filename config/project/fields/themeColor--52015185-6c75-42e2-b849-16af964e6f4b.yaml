@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: themeColor
+instructions: null
+name: 'Theme Color'
+searchable: false
+settings:
+  defaultColor: '#29c758'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color
