@@ -1,0 +1,34 @@
+columnSuffix: null
+handle: logoImage
+instructions: null
+name: 'Logo Image'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds: null
+  branchLimit: null
+  defaultUploadLocationSource: 'volume:e9751f72-d746-49b3-ad2f-a5b32abb0cb5' # Global Assets
+  defaultUploadLocationSubpath: null
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: 0
+  previewMode: full
+  restrictFiles: false
+  restrictLocation: true
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:e9751f72-d746-49b3-ad2f-a5b32abb0cb5' # Global Assets
+  restrictedLocationSubpath: null
+  selectionLabel: 'Add a Logo'
+  showCardsInGrid: false
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Assets

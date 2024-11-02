@@ -1,11 +1,26 @@
-dateModified: 1730450485
+dateModified: 1730497424
 email:
   fromEmail: carl@avidanodigital.com
   fromName: 'Natura11y Craft'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  globalAssets:
+    hasUrls: true
+    name: 'Global Assets'
+    settings:
+      path: '@webroot/uploads/global-assets'
+    type: craft\fs\Local
+    url: '@web/uploads/global-asset'
 meta:
   __names__:
+    97cf5dd0-3430-47f6-8f8c-757a736dfea6: 'Logo SVG' # Logo SVG
+    2731f8ce-9d28-4719-a7b5-7648654abd3a: 'Link Feild' # Link Feild
+    10665a14-f1e0-402e-93bd-030cadf2e7a9: 'Social Media Link' # Social Media Link
+    587855bf-d3e2-4b8d-bb33-b8a243f0c26b: 'Social Media Links' # Social Media Links
+    a4638ec6-b512-436e-9c4f-13ab670a8309: 'Logo Image' # Logo Image
     d564a43f-3e8f-49ed-a599-df6640d837c5: 'Natura11y Craft' # Natura11y Craft
+    e9751f72-d746-49b3-ad2f-a5b32abb0cb5: 'Global Assets' # Global Assets
+    eb158f32-2e82-4a74-ac4d-7a2c751d8160: 'Site Settings' # Site Settings
     f1ade01c-5513-48c6-ba5c-61d671ad8444: 'Natura11y Craft' # Natura11y Craft
 system:
   edition: solo
