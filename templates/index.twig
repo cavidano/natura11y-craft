@@ -1,74 +1,46 @@
-{# Retrieve the Theme Colors global set and Color Scheme field #}
-{% set themeColors = craft.app.globals.getSetByHandle('themeColors') %}
-{% set colorScheme = themeColors.colorScheme ?? 'light' %}
+{% extends "_layout.twig" %}
 
-{# Determine the HTML class based on the selected Color Scheme #}
-{% set htmlClass = '' %}
+{% block content %}
 
-{% if colorScheme == 'light' %}
-    {% set htmlClass = '' %}
-{% elseif colorScheme == 'dark' %}
-    {% set htmlClass = 'theme-dark' %}
-{% elseif colorScheme == 'prefers' %}
-    {% set htmlClass = 'theme-canvas--prefers' %}
-{% endif %}
+    <section class="backdrop backdrop--stack--lg" id="introduction">
 
-{# Retrieve global settings for custom font code and font family #}
-{% set themeFonts = craft.app.globals.getSetByHandle('typography') %}
-{% set customFontCode = themeFonts.customFontCode ?? '' %}
-{# {% set fontFamily = themeFonts.fontFamily ?? 'sans-serif' %} #}
+        <div class="backdrop__media gradient-mask-bottom">
+            <img class="opacity-30" src="https://cavidano.github.io/natura11y/dist/html/examples/peak-performance-page/images/jonny-james-3no88nSvK88-unsplash.jpg" alt="Placeholder">
+        </div>
 
-<!DOCTYPE html>
+        <div class="backdrop__cover">
 
-<html class="{{ htmlClass }}" lang="en-US">
+            <div class="container narrow--sm medium--lg text-align-center">
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        
-        <meta charset="utf-8" />
+                <h1 class="banner-headline text-shadow margin-bottom-4">
+                    Nulla Facilisi Cras Fermentum Odio Feugiat Pretium
+                </h1>
 
-        <title>Welcome to Craft CMS</title>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-        <meta name="referrer" content="origin-when-cross-origin" />
+                <div class="narrow margin-x-auto">
 
-        <!-- Natura11y Icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cavidano/natura11y-icons@main/dist/natura11y-icons.min.css">
+                    <div class="grid grid--column-2--md gap-3">
 
-        <!-- Natura11y Stylesheet -->
-        <link rel="stylesheet" href="{{ siteUrl }}/dist/css/natura11y.css">
+                        <a class="button theme-primary box-shadow-1" href="#1">
+                            <span class="text">Augue Eget Arcu</span>
+                        </a>
 
-        <!-- Custom Fonts -->
-        {# Output the custom font code in the <head> #}
-        {{ customFontCode|raw }}
+                        <a class="button button--outline" href="#1">
+                            <span class="text">Mincidunt Augue</span>
+                        </a>
+                    </div>
 
-        <link rel="stylesheet" href="{{ url('css/theme.css') }}">
-    
-    </head>
-    
-    	<div class="skip-links">
+                </div>
 
-			<a href="#main">
-				Jump to main content
-			</a>
+            </div>
 
-			<a href="#global-footer">
-				Jump to website footer
-			</a>
-		
-		</div>
+        </div>
 
-        {{ include('_includes/global-header.twig') }}
+        <div class="backdrop__media__credit margin-1">
+            <p>
+                Photo by <a href="https://unsplash.com/@jonnyjames2" target="_blank">Jonny James</a> on Unsplash
+            </p>
+        </div>
 
-        {% block content %}
-            
-        {% endblock %}
+    </section>
 
-        {{ include('_includes/global-footer.twig') }}
-
-        <!-- Natura11y Javascript -->
-        <script src="{{ siteUrl }}/dist/js/natura11y.js"></script>
-
-    </body>
-
-</html>
+{% endblock %}

@@ -7,7 +7,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-02T20:56:27+00:00'
             elementCondition: null
-            fieldUid: 840456cc-6313-485e-a607-e2debcca5328 # Custom Font Code
+            fieldUid: 840456cc-6313-485e-a607-e2debcca5328 # Font Embed Code
             handle: null
             includeInCards: false
             instructions: null
@@ -21,13 +21,26 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-03T09:41:46+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 03715be3-eef6-4247-b137-3ba8222859c0
+            userCondition: null
+          -
+            dateAdded: '2024-11-03T09:49:40+00:00'
+            elementCondition: null
+            heading: 'Font Family'
+            type: craft\fieldlayoutelements\Heading
+            uid: 55ba6cd0-a9af-40e9-82a5-6411d5310217
+            userCondition: null
+          -
             dateAdded: '2024-11-02T21:16:51+00:00'
             elementCondition: null
-            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Plain Text
-            handle: fontFamily
+            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Button Font Family
+            handle: bodyFontFamily
             includeInCards: false
             instructions: null
-            label: 'Font Family'
+            label: 'Body Font Family'
             providesThumbs: false
             required: false
             tip: null
@@ -36,13 +49,40 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2024-11-03T09:40:51+00:00'
+            elementCondition: null
+            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Button Font Family
+            handle: headerFontFamily
+            includeInCards: false
+            instructions: null
+            label: 'Header Font Family'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 324193bc-6d4b-490a-bfb8-efd8d0b7f800
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-03T10:43:25+00:00'
+            elementCondition: null
+            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Button Font Family
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 536cabab-d429-49f0-8c10-851487843f38
+            userCondition: null
+            warning: null
+            width: 100
         name: Typefaces
         uid: 72c8c40a-ca98-4ee6-a275-c708f5859312
-        userCondition: null
-      -
-        elementCondition: null
-        name: 'Type Scale'
-        uid: 5f1dc666-16de-479b-a742-a8501b71bc14
         userCondition: null
 handle: typography
 name: Typography

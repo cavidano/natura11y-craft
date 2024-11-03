@@ -64,6 +64,8 @@ In this file:
 :root {
     --nav-gap: 0.875em;
 
+    --nav-font-family: var(--button-font-family);
+
     --nav-divider-padding-x: var(--container-padding-x);
 
     --nav-divider-padding-y: 0.625em;
@@ -79,6 +81,8 @@ In this file:
 
 %list-style-nav {
     list-style: none;
+
+    font-family: var(--nav-font-family);
 
     line-height: normal;
 

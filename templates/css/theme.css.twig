@@ -43,5 +43,7 @@
     {% set themeFonts = craft.app.globals.getSetByHandle('typography') %}
 
     {# Font Family #}
-    {% if themeFonts.fontFamily %}--body-font-family: {{ themeFonts.fontFamily|raw }};{% endif %}
+    {% if themeFonts.bodyFontFamily %}--body-font-family: {{ themeFonts.bodyFontFamily|raw }};{% endif %}
+    {% if themeFonts.headerFontFamily %}--header-font-family: {{ themeFonts.headerFontFamily|raw }};{% endif %}
+    {% if themeFonts.buttonFontFamily %}--button-font-family: {{ themeFonts.buttonFontFamily|raw }};{% endif %}
 }

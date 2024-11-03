@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: plainText
+handle: buttonFontFamily
 instructions: null
-name: 'Plain Text'
+name: 'Button Font Family'
 searchable: false
 settings:
   byteLimit: null

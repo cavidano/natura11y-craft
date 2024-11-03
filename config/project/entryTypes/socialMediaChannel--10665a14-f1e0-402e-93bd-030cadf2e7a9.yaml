@@ -54,7 +54,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-02T09:48:57+00:00'
             elementCondition: null
-            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Plain Text
+            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Button Font Family
             handle: iconHandle
             includeInCards: false
             instructions: null

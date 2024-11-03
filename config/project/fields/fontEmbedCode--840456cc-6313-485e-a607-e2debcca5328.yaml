@@ -1,7 +1,7 @@
 columnSuffix: null
-handle: customFontCode
+handle: fontEmbedCode
 instructions: null
-name: 'Custom Font Code'
+name: 'Font Embed Code'
 searchable: false
 settings:
   availableLanguages:

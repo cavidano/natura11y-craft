@@ -1,0 +1,72 @@
+{# Retrieve the Theme Colors global set and Color Scheme field #}
+{% set themeColors = craft.app.globals.getSetByHandle('themeColors') %}
+{% set colorScheme = themeColors.colorScheme ?? 'light' %}
+
+{# Determine the HTML class based on the selected Color Scheme #}
+{% set htmlClass = '' %}
+
+{% if colorScheme == 'light' %}
+    {% set htmlClass = '' %}
+{% elseif colorScheme == 'dark' %}
+    {% set htmlClass = 'theme-dark' %}
+{% elseif colorScheme == 'prefers' %}
+    {% set htmlClass = 'theme-canvas--prefers' %}
+{% endif %}
+
+{# Retrieve global settings for custom font code and font family #}
+{% set themeFonts = craft.app.globals.getSetByHandle('typography') %}
+{% set fontEmbedCode = themeFonts.fontEmbedCode ?? '' %}
+
+<!DOCTYPE html>
+
+<html class="{{ htmlClass }}" lang="en-US">
+
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <meta charset="utf-8" />
+
+        <title>Welcome to Craft CMS</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="referrer" content="origin-when-cross-origin" />
+
+        <!-- Natura11y Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cavidano/natura11y-icons@main/dist/natura11y-icons.min.css">
+
+        <!-- Natura11y Stylesheet -->
+        <link rel="stylesheet" href="{{ siteUrl }}/dist/css/natura11y.css">
+
+        <!-- Font Embed Code -->
+        {% if fontEmbedCode %}{{ fontEmbedCode|raw }}{% endif %}
+
+        <link rel="stylesheet" href="{{ url('css/theme.css') }}">
+    
+    </head>
+    
+    	<div class="skip-links">
+
+			<a href="#main">
+				Jump to main content
+			</a>
+
+			<a href="#global-footer">
+				Jump to website footer
+			</a>
+		
+		</div>
+
+        {{ include('_includes/global-header.twig') }}
+
+        {% block content %}
+            
+        {% endblock %}
+
+        {{ include('_includes/global-footer.twig') }}
+
+        <!-- Natura11y Javascript -->
+        <script src="{{ siteUrl }}/dist/js/natura11y.js"></script>
+
+    </body>
+
+</html>
