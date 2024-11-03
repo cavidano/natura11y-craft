@@ -5,20 +5,14 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-11-02T11:12:21+00:00'
+            dateAdded: '2024-11-02T20:32:55+00:00'
             dismissible: false
             elementCondition: null
             style: tip
-            tip: '**Theme** settings let you customize the look and feel of your website. Adjust colors, fonts, and other visual elements to match your brand. Any changes you make here will be applied site-wide.'
+            tip: "Use the **Theme Mode** section to select your preferred color scheme for the website. This setting controls the overall look and feel of the site by applying different color themes. \r\n\r\n- **Light (Normal)**: This is the default light theme, suitable for standard viewing.\r\n- **Dark Mode**: This theme provides a darker color palette, reducing eye strain in low-light environments.\r\n- **Prefers**: This mode respects the user's system preference for light or dark mode, automatically adjusting based on their settings."
             type: craft\fieldlayoutelements\Tip
-            uid: 452978dd-c8a4-4969-a828-e6f92a62b9a9
+            uid: 3cf9253c-eecc-4454-b2ae-f62d507b2ca7
             userCondition: null
-        name: 'Uising This Section'
-        uid: 170838e5-05cc-418f-9dd8-0592d15ed2ec
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
           -
             dateAdded: '2024-11-02T18:59:06+00:00'
             elementCondition: null
@@ -445,6 +439,108 @@ fieldLayouts:
             width: 100
         name: 'Light Colors'
         uid: 45cd8b1b-43ce-48a8-806d-c6e1247e990d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasColor
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 650f318a-0fca-4dc5-9cec-8ecbee2fd634
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasText
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Text'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 61ebb8c1-4076-49b9-81fd-6ab99b1595ab
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasBorder
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Border'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 97a2d0af-db60-4f2e-88f1-1d80192bf379
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasLink
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Link'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c993c127-4e30-4806-9084-2a26f3129290
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasConfirm
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Confirm'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ccbf190f-4205-4d47-86d1-b0a4f642d98b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:58:06+00:00'
+            elementCondition: null
+            fieldUid: 52015185-6c75-42e2-b849-16af964e6f4b # Theme Color
+            handle: canvasWarn
+            includeInCards: false
+            instructions: null
+            label: 'Canvas Warn'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b45dd963-08ec-489c-a218-1c656100f2c3
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Canvas (White) Colors'
+        uid: b64ad003-0652-4941-91ba-11db8cd684d2
         userCondition: null
 handle: themeColors
 name: 'Theme Colors'

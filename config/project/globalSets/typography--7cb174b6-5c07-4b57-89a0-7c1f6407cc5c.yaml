@@ -1,0 +1,49 @@
+fieldLayouts:
+  0a2573f1-f764-4e1b-9104-d2c16e85ccf6:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-02T20:56:27+00:00'
+            elementCondition: null
+            fieldUid: 840456cc-6313-485e-a607-e2debcca5328 # Custom Font Code
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5195ca39-6d3f-4da2-b390-4d404e8feaed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-02T21:16:51+00:00'
+            elementCondition: null
+            fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Plain Text
+            handle: fontFamily
+            includeInCards: false
+            instructions: null
+            label: 'Font Family'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 914cb0f9-8166-4769-bd5f-0d9be08aa7d0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Typefaces
+        uid: 72c8c40a-ca98-4ee6-a275-c708f5859312
+        userCondition: null
+      -
+        elementCondition: null
+        name: 'Type Scale'
+        uid: 5f1dc666-16de-479b-a742-a8501b71bc14
+        userCondition: null
+handle: typography
+name: Typography
+sortOrder: 4

@@ -13,6 +13,11 @@
     {% set htmlClass = 'theme-canvas--prefers' %}
 {% endif %}
 
+{# Retrieve global settings for custom font code and font family #}
+{% set themeFonts = craft.app.globals.getSetByHandle('typography') %}
+{% set customFontCode = themeFonts.customFontCode ?? '' %}
+{# {% set fontFamily = themeFonts.fontFamily ?? 'sans-serif' %} #}
+
 <!DOCTYPE html>
 
 <html class="{{ htmlClass }}" lang="en-US">
@@ -32,6 +37,10 @@
 
         <!-- Natura11y Stylesheet -->
         <link rel="stylesheet" href="{{ siteUrl }}/dist/css/natura11y.css">
+
+        <!-- Custom Fonts -->
+        {# Output the custom font code in the <head> #}
+        {{ customFontCode|raw }}
 
         <link rel="stylesheet" href="{{ url('css/theme.css') }}">
     

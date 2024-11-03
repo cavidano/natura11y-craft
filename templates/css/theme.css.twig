@@ -1,42 +1,47 @@
 {% do craft.app.response.headers.set('Content-Type', 'text/css') %}
 
-{% set theming = craft.app.globals.getSetByHandle('themeColors') %}
-
 :root {
-    {# Principle Pallette#}
-    
-    {% if theming.primaryColor %}--primary: {{ theming.primaryColor.hex }};{% endif %}
-    {% if theming.primaryText %}--primary-text: {{ theming.primaryText.hex }};{% endif %}
-    {% if theming.primaryBorder %}--primary-border: {{ theming.primaryBorder.hex }};{% endif %}
-    {% if theming.primaryLink %}--primary-link: {{ theming.primaryLink.hex }};{% endif %}
-    {% if theming.primaryConfirm %}--primary-confirm: {{ theming.primaryConfirm.hex }};{% endif %}
-    {% if theming.primaryWarn %}--primary-warn: {{ theming.primaryWarn.hex }};{% endif %}
+    {# Theme Colors #}
+    {% set themeColors = craft.app.globals.getSetByHandle('themeColors') %}
 
-    {% if theming.secondaryColor %}--secondary: {{ theming.secondaryColor.hex }};{% endif %}
-    {% if theming.secondaryText %}--secondary-text: {{ theming.secondaryText.hex }};{% endif %}
-    {% if theming.secondaryBorder %}--secondary-border: {{ theming.secondaryBorder.hex }};{% endif %}
-    {% if theming.secondaryLink %}--secondary-link: {{ theming.secondaryLink.hex }};{% endif %}
-    {% if theming.secondaryConfirm %}--secondary-confirm: {{ theming.secondaryConfirm.hex }};{% endif %}
-    {% if theming.secondaryWarn %}--secondary-warn: {{ theming.secondaryWarn.hex }};{% endif %}
+    {% if themeColors.primaryColor %}--primary: {{ themeColors.primaryColor.hex }};{% endif %}
+    {% if themeColors.primaryText %}--primary-text: {{ themeColors.primaryText.hex }};{% endif %}
+    {% if themeColors.primaryBorder %}--primary-border: {{ themeColors.primaryBorder.hex }};{% endif %}
+    {% if themeColors.primaryLink %}--primary-link: {{ themeColors.primaryLink.hex }};{% endif %}
+    {% if themeColors.primaryConfirm %}--primary-confirm: {{ themeColors.primaryConfirm.hex }};{% endif %}
+    {% if themeColors.primaryWarn %}--primary-warn: {{ themeColors.primaryWarn.hex }};{% endif %}
 
-    {% if theming.darkColor %}--dark: {{ theming.darkColor.hex }};{% endif %}
-    {% if theming.darkText %}--dark-text: {{ theming.darkText.hex }};{% endif %}
-    {% if theming.darkBorder %}--dark-border: {{ theming.darkBorder.hex }};{% endif %}
-    {% if theming.darkLink %}--dark-link: {{ theming.darkLink.hex }};{% endif %}
-    {% if theming.darkConfirm %}--dark-confirm: {{ theming.darkConfirm.hex }};{% endif %}
-    {% if theming.darkWarn %}--dark-warn: {{ theming.darkWarn.hex }};{% endif %}
+    {% if themeColors.secondaryColor %}--secondary: {{ themeColors.secondaryColor.hex }};{% endif %}
+    {% if themeColors.secondaryText %}--secondary-text: {{ themeColors.secondaryText.hex }};{% endif %}
+    {% if themeColors.secondaryBorder %}--secondary-border: {{ themeColors.secondaryBorder.hex }};{% endif %}
+    {% if themeColors.secondaryLink %}--secondary-link: {{ themeColors.secondaryLink.hex }};{% endif %}
+    {% if themeColors.secondaryConfirm %}--secondary-confirm: {{ themeColors.secondaryConfirm.hex }};{% endif %}
+    {% if themeColors.secondaryWarn %}--secondary-warn: {{ themeColors.secondaryWarn.hex }};{% endif %}
+
+    {% if themeColors.darkColor %}--dark: {{ themeColors.darkColor.hex }};{% endif %}
+    {% if themeColors.darkText %}--dark-text: {{ themeColors.darkText.hex }};{% endif %}
+    {% if themeColors.darkBorder %}--dark-border: {{ themeColors.darkBorder.hex }};{% endif %}
+    {% if themeColors.darkLink %}--dark-link: {{ themeColors.darkLink.hex }};{% endif %}
+    {% if themeColors.darkConfirm %}--dark-confirm: {{ themeColors.darkConfirm.hex }};{% endif %}
+    {% if themeColors.darkWarn %}--dark-warn: {{ themeColors.darkWarn.hex }};{% endif %}
     
-    {% if theming.lightColor %}--light: {{ theming.lightColor.hex }};{% endif %}
-    {% if theming.lightText %}--light-text: {{ theming.lightText.hex }};{% endif %}
-    {% if theming.lightBorder %}--light-border: {{ theming.lightBorder.hex }};{% endif %}
-    {% if theming.lightLink %}--light-link: {{ theming.lightLink.hex }};{% endif %}
-    {% if theming.lightConfirm %}--light-confirm: {{ theming.lightConfirm.hex }};{% endif %}
-    {% if theming.lightWarn %}--light-warn: {{ theming.lightWarn.hex }};{% endif %}
+    {% if themeColors.lightColor %}--light: {{ themeColors.lightColor.hex }};{% endif %}
+    {% if themeColors.lightText %}--light-text: {{ themeColors.lightText.hex }};{% endif %}
+    {% if themeColors.lightBorder %}--light-border: {{ themeColors.lightBorder.hex }};{% endif %}
+    {% if themeColors.lightLink %}--light-link: {{ themeColors.lightLink.hex }};{% endif %}
+    {% if themeColors.lightConfirm %}--light-confirm: {{ themeColors.lightConfirm.hex }};{% endif %}
+    {% if themeColors.lightWarn %}--light-warn: {{ themeColors.lightWarn.hex }};{% endif %}
     
-    {# {% if theming.canvasColor %}--canvas: {{ theming.canvasColor.hex }};{% endif %}
-    {% if theming.canvasText %}--canvas-text: {{ theming.canvasText.hex }};{% endif %}
-    {% if theming.canvasBorder %}--canvas-border: {{ theming.canvasBorder.hex }};{% endif %}
-    {% if theming.canvasLink %}--canvas-link: {{ theming.canvasLink.hex }};{% endif %}
-    {% if theming.canvasConfirm %}--canvas-confirm: {{ theming.canvasConfirm.hex }};{% endif %}
-    {% if theming.canvasWarn %}--canvas-warn: {{ theming.canvasWarn.hex }};{% endif %}   #}
+    {% if themeColors.canvasColor %}--canvas: {{ themeColors.canvasColor.hex }};{% endif %}
+    {% if themeColors.canvasText %}--canvas-text: {{ themeColors.canvasText.hex }};{% endif %}
+    {% if themeColors.canvasBorder %}--canvas-border: {{ themeColors.canvasBorder.hex }};{% endif %}
+    {% if themeColors.canvasLink %}--canvas-link: {{ themeColors.canvasLink.hex }};{% endif %}
+    {% if themeColors.canvasConfirm %}--canvas-confirm: {{ themeColors.canvasConfirm.hex }};{% endif %}
+    {% if themeColors.canvasWarn %}--canvas-warn: {{ themeColors.canvasWarn.hex }};{% endif %}
+
+    {# Typography #}
+    {% set themeFonts = craft.app.globals.getSetByHandle('typography') %}
+
+    {# Font Family #}
+    {% if themeFonts.fontFamily %}--body-font-family: {{ themeFonts.fontFamily|raw }};{% endif %}
 }

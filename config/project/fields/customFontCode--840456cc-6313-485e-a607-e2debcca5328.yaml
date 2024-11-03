@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: customFontCode
+instructions: null
+name: 'Custom Font Code'
+searchable: false
+settings:
+  availableLanguages:
+    - html
+  codeFolding: false
+  defaultValue: ''
+  fontSize: 16
+  language: html
+  lineNumbers: false
+  monacoEditorOptions: ''
+  placeholder: ''
+  showLanguageDropdown: false
+  singleLineEditor: false
+  theme: vs
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\codefield\fields\Code

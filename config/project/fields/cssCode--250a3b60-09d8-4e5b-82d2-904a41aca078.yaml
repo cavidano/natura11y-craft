@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: cssCode
+instructions: null
+name: 'CSS Code'
+searchable: false
+settings:
+  availableLanguages:
+    - css
+  codeFolding: false
+  defaultValue: ''
+  fontSize: 16
+  language: css
+  lineNumbers: false
+  monacoEditorOptions: ''
+  placeholder: ''
+  showLanguageDropdown: false
+  singleLineEditor: false
+  theme: auto
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\codefield\fields\Code
