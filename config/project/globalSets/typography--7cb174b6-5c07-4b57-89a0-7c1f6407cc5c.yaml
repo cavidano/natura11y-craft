@@ -21,19 +21,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            dateAdded: '2024-11-03T09:41:46+00:00'
-            elementCondition: null
-            type: craft\fieldlayoutelements\HorizontalRule
-            uid: 03715be3-eef6-4247-b137-3ba8222859c0
-            userCondition: null
-          -
-            dateAdded: '2024-11-03T09:49:40+00:00'
-            elementCondition: null
-            heading: 'Font Family'
-            type: craft\fieldlayoutelements\Heading
-            uid: 55ba6cd0-a9af-40e9-82a5-6411d5310217
-            userCondition: null
-          -
             dateAdded: '2024-11-02T21:16:51+00:00'
             elementCondition: null
             fieldUid: 256d6abe-15f3-4cdc-b8f6-c2e3b54bd7d7 # Button Font Family
